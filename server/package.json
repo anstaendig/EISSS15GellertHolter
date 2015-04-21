@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anstaendig/EISSS15GellertHolter"
+  },
+  "author": "Edgar Gellert, Marcel Holter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anstaendig/EISSS15GellertHolter/issues"
+  },
+  "homepage": "https://github.com/anstaendig/EISSS15GellertHolter",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
