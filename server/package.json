@@ -1,7 +1,7 @@
 {
-  "name": "server",
+  "name": "DMS Server",
   "version": "1.0.0",
-  "description": "Server",
+  "description": "Server for the Diabetes Management System",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
