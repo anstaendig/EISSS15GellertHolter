@@ -61,13 +61,13 @@ request({
     fabrik_listplugin_options: '',
     incfilters: 1
   }
-}, function(error, response, body){
-  if(error) {
-    console.log(error);
-  } else {
+}, function(err, response, body) {
+  if(!err && response.statusCode == 200) {
     var data = JSON.parse(body);
     data[0].forEach(function(product) {
       console.log(chalk.underline(product.betabelle___bezeichnung) + ': ' + chalk.yellow(product.betabelle___beproeinheit));
     });
+  } else {
+    console.log(err);
   };
 });
