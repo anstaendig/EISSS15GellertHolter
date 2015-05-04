@@ -21,7 +21,6 @@ public class MainActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
@@ -54,6 +53,11 @@ public class MainActivity extends ActionBarActivity {
         EditText ediText = (EditText) findViewById(R.id.edit_message);
         String message = ediText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
+    public void startPOC(View view) {
+        Intent intent = new Intent(this, ProofOfConcept.class);
         startActivity(intent);
     }
 }

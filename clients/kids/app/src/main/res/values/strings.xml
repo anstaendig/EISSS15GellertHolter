@@ -7,4 +7,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_search">Action Search</string>
+    <string name="title_activity_proof_of_concept">ProofOfConcept</string>
+
+    <string name="startPOC">Start Proof Of Concept</string>
 </resources>
