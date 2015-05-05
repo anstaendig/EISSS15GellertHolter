@@ -10,4 +10,10 @@
     <string name="title_activity_proof_of_concept">ProofOfConcept</string>
 
     <string name="startPOC">Start Proof Of Concept</string>
+
+    <string name="get">GET</string>
+    <string name="post">PUT</string>
+    <string name="getHint">Result of GET on resource /poc</string>
+    <string name="Name">Username here</string>
+    <string name="LastName">Last name here</string>
 </resources>

@@ -7,21 +7,28 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
-
 public class ProofOfConcept extends ActionBarActivity {
 
-    EditText etResponse;
+    TextView twResponse;
+    EditText etName;
+    EditText etLastName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proof_of_concept);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        twResponse = (TextView) findViewById(R.id.twResponse);
     }
 
     @Override
@@ -47,10 +54,57 @@ public class ProofOfConcept extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void request(View view) throws MalformedURLException, ExecutionException, InterruptedException {
-        etResponse = (EditText) findViewById(R.id.etResponse);
-        URL url = new URL("http://10.0.2.2:3000/poc");
-        String result = new AsyncTaskGet(url).execute().get();
-        etResponse.setText(result);
+    public void get(View view) {
+
+        URL url = null;
+        String result = null;
+
+        try {
+            url = new URL("http://10.0.2.2:3000/poc");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            result = new AsyncTaskGet(url).execute().get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        twResponse.setText(result);
     }
+
+    public void post(View view) {
+        etName = (EditText) findViewById(R.id.etName);
+        etLastName = (EditText) findViewById(R.id.etLastName);
+        URL url = null;
+        String result = null;
+
+        try {
+            url = new URL("http://10.0.2.2:3000/poc");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        String name = etName.getText().toString();
+        String lastName = etLastName.getText().toString();
+
+        JSONObject content = new JSONObject();
+
+        try {
+            content.put("Name", name);
+            content.put("LastName", lastName);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            result = new AsyncTaskPost(url, content.toString()).execute().get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        twResponse.setText(result);
+    }
+
 }

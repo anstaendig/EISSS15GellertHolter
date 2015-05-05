@@ -8,17 +8,32 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/startPOC"
-        android:onClick="request" />
+        android:onClick="get"
+        android:text="@string/get" />
+
+    <TextView
+        android:id="@+id/twResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/getHint" />
+
 
     <EditText
-        android:id="@+id/etResponse"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:ems="10"
-        android:layout_marginTop="10dp"
-        android:inputType="textMultiLine" >
-        <requestFocus />
-    </EditText>
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/Name" />
 
+    <EditText
+        android:id="@+id/etLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/LastName" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="post"
+        android:text="@string/post" />
 </LinearLayout>
