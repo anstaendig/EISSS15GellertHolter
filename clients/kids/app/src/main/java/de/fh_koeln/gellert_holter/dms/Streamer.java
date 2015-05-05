@@ -11,7 +11,6 @@ import java.io.OutputStreamWriter;
 
 public class Streamer {
 
-    //damit keine Instanziierung moeglich ist
     private Streamer() {
     }
 
