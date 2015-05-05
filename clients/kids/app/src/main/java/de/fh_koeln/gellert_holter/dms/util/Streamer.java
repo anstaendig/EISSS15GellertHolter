@@ -1,4 +1,4 @@
-package de.fh_koeln.gellert_holter.dms;
+package de.fh_koeln.gellert_holter.dms.util;
 
 
 import java.io.BufferedReader;

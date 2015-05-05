@@ -1,10 +1,9 @@
-package de.fh_koeln.gellert_holter.dms;
+package de.fh_koeln.gellert_holter.dms.util;
 
 import android.os.AsyncTask;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**

@@ -16,6 +16,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
+import de.fh_koeln.gellert_holter.dms.util.AsyncTaskGet;
+import de.fh_koeln.gellert_holter.dms.util.AsyncTaskPost;
+
 public class ProofOfConcept extends ActionBarActivity {
 
     TextView twResponse;
