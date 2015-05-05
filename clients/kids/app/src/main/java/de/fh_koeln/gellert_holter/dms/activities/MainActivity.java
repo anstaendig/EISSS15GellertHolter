@@ -1,4 +1,4 @@
-package de.fh_koeln.gellert_holter.dms;
+package de.fh_koeln.gellert_holter.dms.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
+
+import de.fh_koeln.gellert_holter.dms.R;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -57,7 +59,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void startPOC(View view) {
-        Intent intent = new Intent(this, ProofOfConcept.class);
+        Intent intent = new Intent(this, ProofOfConceptsActivity.class);
         startActivity(intent);
     }
 }

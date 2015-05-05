@@ -1,4 +1,4 @@
-package de.fh_koeln.gellert_holter.dms;
+package de.fh_koeln.gellert_holter.dms.activities;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import de.fh_koeln.gellert_holter.dms.R;
 
 
 public class DisplayMessageActivity extends ActionBarActivity {

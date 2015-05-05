@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="de.fh_koeln.gellert_holter.dms.ProofOfConcept">
+    tools:context="de.fh_koeln.gellert_holter.dms.activities.ProofOfConceptsActivity">
 
     <Button
         android:layout_width="wrap_content"

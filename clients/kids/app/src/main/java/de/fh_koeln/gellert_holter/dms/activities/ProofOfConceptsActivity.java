@@ -1,4 +1,4 @@
-package de.fh_koeln.gellert_holter.dms;
+package de.fh_koeln.gellert_holter.dms.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -16,10 +16,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
+import de.fh_koeln.gellert_holter.dms.R;
 import de.fh_koeln.gellert_holter.dms.util.AsyncTaskGet;
 import de.fh_koeln.gellert_holter.dms.util.AsyncTaskPost;
 
-public class ProofOfConcept extends ActionBarActivity {
+public class ProofOfConceptsActivity extends ActionBarActivity {
 
     TextView twResponse;
     EditText etName;
