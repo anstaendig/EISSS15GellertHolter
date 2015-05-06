@@ -6,9 +6,6 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.URL;
 
-/**
- * Created by anstaendig on 05/05/15.
- */
 public class AsyncTaskGet extends AsyncTask<URL, String, String> {
 
     URL _url;
@@ -19,6 +16,7 @@ public class AsyncTaskGet extends AsyncTask<URL, String, String> {
 
     @Override
     protected String doInBackground(URL... params) {
+
         String result = null;
 
         try {

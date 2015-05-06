@@ -1,8 +1,5 @@
 package de.fh_koeln.gellert_holter.dms.util;
 
-
-import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;

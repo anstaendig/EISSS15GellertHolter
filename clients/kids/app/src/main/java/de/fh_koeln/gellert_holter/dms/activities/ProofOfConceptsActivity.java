@@ -32,6 +32,8 @@ public class ProofOfConceptsActivity extends ActionBarActivity {
         setContentView(R.layout.activity_proof_of_concept);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         twResponse = (TextView) findViewById(R.id.twResponse);
+        etName = (EditText) findViewById(R.id.etName);
+        etLastName = (EditText) findViewById(R.id.etLastName);
     }
 
     @Override
@@ -60,7 +62,6 @@ public class ProofOfConceptsActivity extends ActionBarActivity {
     public void get(View view) {
 
         URL url = null;
-        String result = null;
 
         try {
             url = new URL("http://10.0.2.2:3000/poc");
@@ -69,30 +70,28 @@ public class ProofOfConceptsActivity extends ActionBarActivity {
         }
 
         try {
-            result = new AsyncTaskGet(url).execute().get();
-        } catch (InterruptedException | ExecutionException e) {
+            JSONObject jsonResult = new JSONObject(new AsyncTaskGet(url).execute().get());
+            twResponse.setText(jsonResult.toString(2));
+        } catch (InterruptedException | ExecutionException | JSONException e) {
             e.printStackTrace();
         }
-
-        twResponse.setText(result);
     }
 
     public void post(View view) {
-        etName = (EditText) findViewById(R.id.etName);
-        etLastName = (EditText) findViewById(R.id.etLastName);
+
         URL url = null;
         String result = null;
-
-        try {
-            url = new URL("http://10.0.2.2:3000/poc");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
 
         String name = etName.getText().toString();
         String lastName = etLastName.getText().toString();
 
         JSONObject content = new JSONObject();
+
+        try {
+            url = new URL("http://10.0.2.2:3000/poc");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
         try {
             content.put("Name", name);
@@ -109,5 +108,4 @@ public class ProofOfConceptsActivity extends ActionBarActivity {
 
         twResponse.setText(result);
     }
-
 }

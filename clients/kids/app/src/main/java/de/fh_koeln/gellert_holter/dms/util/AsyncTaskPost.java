@@ -8,9 +8,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * Created by anstaendig on 05/05/15.
- */
 public class AsyncTaskPost extends AsyncTask<URL, String, String> {
 
     URL _url;
@@ -29,12 +26,12 @@ public class AsyncTaskPost extends AsyncTask<URL, String, String> {
         try {
             connection = (HttpURLConnection) _url.openConnection();
             connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
             connection.setChunkedStreamingMode(0);
             connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         try {
             assert connection != null;
             BufferedOutputStream bos = new BufferedOutputStream(connection.getOutputStream());
@@ -42,6 +39,7 @@ public class AsyncTaskPost extends AsyncTask<URL, String, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         try {
             result = Streamer.read(new BufferedInputStream(connection.getInputStream()));
         } catch (IOException e) {
