@@ -22,7 +22,7 @@ public class AsyncTaskGet extends AsyncTask<URL, String, String> {
         String result = null;
 
         try {
-            result = Streamer.readStream(new BufferedInputStream(_url.openStream()));
+            result = Streamer.read(new BufferedInputStream(_url.openStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }

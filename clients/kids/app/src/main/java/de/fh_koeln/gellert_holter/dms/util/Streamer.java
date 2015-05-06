@@ -1,6 +1,8 @@
 package de.fh_koeln.gellert_holter.dms.util;
 
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -14,9 +16,9 @@ public class Streamer {
     private Streamer() {
     }
 
-    public static String readStream(InputStream in) {
+    public static String read(InputStream in) {
 
-        String readLines = "Fail";
+        String readLines = null;
         BufferedReader br = null;
 
         try {
@@ -27,33 +29,36 @@ public class Streamer {
                 readLines += line;
             }
         } catch (IOException e) {
-            readLines += "Failed reading out of inputstream";
+            readLines += "Reading InputStream failed!";
+            e.printStackTrace();
         } finally {
             if (br != null) {
                 try {
                     br.close();
                 } catch (IOException e) {
-                    readLines += "Failed to Close BR! Caution!";
+                    readLines += "Closing BufferedReader failed!";
+                    e.printStackTrace();
                 }
             }
         }
+
         return readLines;
     }
 
-    public static void writeStream(OutputStream out, String content) {
+    public static void write(OutputStream out, String content) {
+
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out));
 
         try {
             bw.write(content);
             bw.flush();
         } catch (IOException e) {
-            System.out.println("IO Exc on POST");
             e.printStackTrace();
         } finally {
             try {
                 bw.close();
             } catch (IOException e) {
-                System.out.println("IO Exc on POST closing BufferedWriter");
+                e.printStackTrace();
             }
         }
     }
