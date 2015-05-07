@@ -14,8 +14,6 @@ import de.fh_koeln.gellert_holter.dms.R;
 
 public class MainActivity extends ActionBarActivity {
 
-    public final static String EXTRA_MESSAGE = "de.fh_koeln.gellert_holter.dms.MESSAGE";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,18 +46,18 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    /** Called when the user clicks the send button */
-    public void sendMessage(View view) {
-        // Do somehting in response to button
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText ediText = (EditText) findViewById(R.id.edit_message);
-        String message = ediText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+    public void startClientServerCommunicationActivity(View view) {
+        Intent intent = new Intent(this, ClientServerCommunicationActivity.class);
         startActivity(intent);
     }
 
-    public void startPOC(View view) {
-        Intent intent = new Intent(this, ProofOfConceptsActivity.class);
+    public void startDataStorageActivity(View view) {
+        Intent intent = new Intent(this, DataStorageActivity.class);
+        startActivity(intent);
+    }
+
+    public void startActivityCommunicationActivity(View view) {
+        Intent intent = new Intent(this, ActivityCommunicationActivity.class);
         startActivity(intent);
     }
 }

@@ -35,13 +35,13 @@ public class AsyncTaskPost extends AsyncTask<URL, String, String> {
         try {
             assert connection != null;
             BufferedOutputStream bos = new BufferedOutputStream(connection.getOutputStream());
-            Streamer.write(bos, _content);
+            Stream.write(bos, _content);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
-            result = Streamer.read(new BufferedInputStream(connection.getInputStream()));
+            result = Stream.read(new BufferedInputStream(connection.getInputStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }

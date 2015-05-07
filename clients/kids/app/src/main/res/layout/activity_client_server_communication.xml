@@ -3,13 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="de.fh_koeln.gellert_holter.dms.activities.ProofOfConceptsActivity">
+    tools:context="de.fh_koeln.gellert_holter.dms.activities.ClientServerCommunicationActivity">
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:onClick="get"
         android:text="@string/get" />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/Name" />
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/LastName" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="post"
+        android:text="@string/post" />
 
     <TextView
         android:id="@+id/twResponse"
@@ -17,23 +40,4 @@
         android:layout_height="wrap_content"
         android:hint="@string/getHint" />
 
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/Name" />
-
-    <EditText
-        android:id="@+id/etLastName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/LastName" />
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="post"
-        android:text="@string/post" />
 </LinearLayout>

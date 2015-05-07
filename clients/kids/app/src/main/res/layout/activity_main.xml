@@ -1,25 +1,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edit_message"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="@string/edit_message" />
-
-    <Button
+    <TextView
+        android:id="@+id/twPOC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="sendMessage"
-        android:text="@string/button_send" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/welcome" />
 
     <Button
+        android:id="@+id/startClientServerCommunication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="startPOC"
-        android:text="@string/startPOC" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="startClientServerCommunicationActivity"
+        android:text="@string/startClientServerCommunication" />
+
+    <Button
+        android:id="@+id/startDataStorage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="startDataStorageActivity"
+        android:text="@string/startDataStorage" />
+
+    <Button
+        android:id="@+id/startActivityCommunication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="startActivityCommunicationActivity"
+        android:text="@string/ActivityCommunication" />
 </LinearLayout>

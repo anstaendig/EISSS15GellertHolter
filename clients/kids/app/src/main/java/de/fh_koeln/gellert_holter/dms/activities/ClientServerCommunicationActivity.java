@@ -20,16 +20,17 @@ import de.fh_koeln.gellert_holter.dms.R;
 import de.fh_koeln.gellert_holter.dms.util.AsyncTaskGet;
 import de.fh_koeln.gellert_holter.dms.util.AsyncTaskPost;
 
-public class ProofOfConceptsActivity extends ActionBarActivity {
+public class ClientServerCommunicationActivity extends ActionBarActivity {
 
     TextView twResponse;
     EditText etName;
     EditText etLastName;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_proof_of_concept);
+        setContentView(R.layout.activity_client_server_communication);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         twResponse = (TextView) findViewById(R.id.twResponse);
         etName = (EditText) findViewById(R.id.etName);
@@ -108,4 +109,5 @@ public class ProofOfConceptsActivity extends ActionBarActivity {
 
         twResponse.setText(result);
     }
+
 }

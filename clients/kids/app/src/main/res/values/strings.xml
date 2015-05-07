@@ -1,19 +1,32 @@
 <resources>
-    <string name="app_name">DMS</string>
+    <string name="app_name">Diabetes Management System</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Action Search</string>
+
+    <string name="title_activity_display_message">Display Message </string>
+
+    <string name="welcome">Welcome to our Proof Of Concepts!</string>
+
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_display_message">My Message</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_search">Action Search</string>
-    <string name="title_activity_proof_of_concept">ProofOfConcept</string>
+    <string name="startClientServerCommunication">Client/Server-Communication</string>
+    <string name="startDataStorage">Data Storage</string>
+    <string name="ActivityCommunication">Activity Communication</string>
 
-    <string name="startPOC">Start Proof Of Concept</string>
-
+    <string name="title_activity_client_server_communication">Client/Server-Communication</string>
     <string name="get">GET</string>
-    <string name="post">PUT</string>
-    <string name="getHint">Result of GET on resource /poc</string>
-    <string name="Name">Username here</string>
-    <string name="LastName">Last name here</string>
+    <string name="getHint">Server response</string>
+    <string name="post">POST</string>
+    <string name="Name">First name</string>
+    <string name="LastName">Last name</string>
+
+    <string name="title_activity_data_storage">DataStorageActivity</string>
+    <string name="dataStorageText">Enter a string that will be saved to internal data storage!</string>
+    <string name="save">save</string>
+    <string name="readText">Content of file</string>
+    <string name="read">read</string>
+
+    <string name="title_activity_activity_communication">ActivityCommunicationActivity</string>
 </resources>

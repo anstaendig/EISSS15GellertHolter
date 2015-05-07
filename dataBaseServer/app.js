@@ -6,8 +6,12 @@ var db = mongo.db("mongodb://localhost:27017/carbs", {native_parser:true});
 db.bind('carbs');
 
 app.get('/:bezeichnung', function (req, res) {
+
   var search = req.params.bezeichnung;
+
   db.collection('carbs').find({bezeichnung: {$regex : ".*" + search + ".*", $options: 'i'}}).toArray(function(err, result) {
+
+    res.json(result);
     console.log(result);
   });
 });

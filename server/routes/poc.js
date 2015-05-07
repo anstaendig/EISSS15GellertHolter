@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   console.log(req.body);
-  res.send('Post on /poc was successfull');
+  res.send('Post on resource "/poc" was successfull');
 });
 
 module.exports = router;

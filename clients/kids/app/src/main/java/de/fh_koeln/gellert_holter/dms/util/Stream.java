@@ -8,9 +8,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
-public class Streamer {
+public class Stream {
 
-    private Streamer() {
+    private Stream() {
     }
 
     public static String read(InputStream in) {
