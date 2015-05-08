@@ -22,11 +22,14 @@
     <string name="Name">First name</string>
     <string name="LastName">Last name</string>
 
-    <string name="title_activity_data_storage">DataStorageActivity</string>
+    <string name="title_activity_data_storage">Data Storage</string>
     <string name="dataStorageText">Enter a string that will be saved to internal data storage!</string>
     <string name="save">save</string>
     <string name="readText">Content of file</string>
     <string name="read">read</string>
 
-    <string name="title_activity_activity_communication">ActivityCommunicationActivity</string>
+    <string name="title_activity_activity_communication">Activity Communication</string>
+    <string name="title_activity_insulin_calculator">Insulin Calculator </string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

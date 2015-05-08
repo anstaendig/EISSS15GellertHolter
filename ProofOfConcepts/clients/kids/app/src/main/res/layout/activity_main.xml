@@ -33,4 +33,12 @@
         android:layout_gravity="center_horizontal"
         android:onClick="startActivityCommunicationActivity"
         android:text="@string/ActivityCommunication" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insulin calculator"
+        android:id="@+id/startInsulin"
+        android:layout_gravity="center_horizontal"
+        android:onClick="startActivityInsulinCalculatorActivity"/>
 </LinearLayout>

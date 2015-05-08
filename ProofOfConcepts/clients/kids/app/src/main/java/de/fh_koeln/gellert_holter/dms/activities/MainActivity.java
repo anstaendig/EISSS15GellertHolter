@@ -60,4 +60,10 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(this, ActivityCommunicationActivity.class);
         startActivity(intent);
     }
+
+    public void startActivityInsulinCalculatorActivity(View view) {
+        Intent intent = new Intent(this, InsulinCalculatorActivity.class);
+        startActivity(intent);
+    }
+
 }
