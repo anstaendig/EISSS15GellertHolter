@@ -4,7 +4,7 @@ var request = require('request');
 var counter = 0;
 
 var poc = function(){
-     if(counter < 5) {
+     if(counter < 50) {
           request('http://localhost:3030/' + product, function(err, res, body) {
             if(!err && res.statusCode === 200) {
               var data = JSON.parse(body);
