@@ -1,34 +1,24 @@
-/* var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/test');
-
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback) {
-  console.log('Succesfully connected to database!')
-}); */
 var mongo = require('mongoskin');
+var ObjectID = require('mongodb').ObjectID;
 
 var db = mongo.db('mongodb://localhost:27017/test', {native_parser:true});
 db.bind('sick');
 
 // define parts for aggregation pipeline
 var a = {'$match': {'$or': [{'krankheiten': 'Stinken'},{'krankheiten': 'Grippe'}]}};
-//var b = {'$project': 'krankheiten'};
-var c = {'$unwind': '$krankheiten'};
-var d = {'$project': {'c': {'$concat':
+var b = {'$unwind': '$krankheiten'};
+var c = {'$project': {'c': {'$concat':
                             [{'$cond':[{'$eq' : ['$krankheiten', 'Stinken' ]},'Stinken','']},
                             {'$cond':[{'$eq' : ['$krankheiten', 'Grippe']},'Grippe','']}]}}};
-var e = {'$group': {'c': {'$addToSet': '$c'}, '_id': '$_id'}};
-var h = {'$match': {'c': {'$size': 3}}};
-var i = {'$project': {'_id': '$_id'}};
+var d = {'$group': {'c': {'$addToSet': '$c'}, '_id': '$_id'}};
+var e = {'$match': {'c': {'$size': 3}}};
+var f = {'$project': {'_id': '$_id'}};
 
-db.collection('sick').aggregate([a,c,d,e,h,i], function(err, result) {
-  console.log(result.length);
-  for (var i = 0; i < result.length; i++) {
-    db.collection('sick').findOne({_id:result[i]._id}, function(err, matched) {
-      console.log(matched);
-    })
-  };
+db.collection('sick').aggregate([a,b,c,d,e,f], function(err, result) {
+  console.log(result);
+  var ids = result.map(function(obj) { return ObjectID(obj._id); });
+  console.log(ids);
+  db.collection('sick').find({'_id': {'$in': ids}}).toArray(function(err, docs) {
+    console.log(docs);
+  });
 });
