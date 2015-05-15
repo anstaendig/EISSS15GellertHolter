@@ -15,9 +15,9 @@ var e = {'$match': {'c': {'$size': 3}}};
 var f = {'$project': {'_id': '$_id'}};
 
 db.collection('sick').aggregate([a,b,c,d,e,f], function(err, result) {
-  console.log(result);
-  var ids = result.map(function(obj) { return ObjectID(obj._id); });
-  console.log(ids);
+  //console.log(result);
+  var ids = result.map(function(obj) { return obj._id; });
+  //console.log(ids);
   db.collection('sick').find({'_id': {'$in': ids}}).toArray(function(err, docs) {
     console.log(docs);
   });
