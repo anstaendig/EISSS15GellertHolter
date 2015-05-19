@@ -7,7 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
-
+var mongoose = require('mongoose');
+var chalk = require('chalk');
 /**
  * Get port from environment and store in Express.
  */
@@ -20,6 +21,18 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+
+/**
+ * Open conneciton to database
+ */
+
+mongoose.connect('mongodb://localhost/carbs');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function(callback) {
+  console.log(chalk.green('Successfully connected to database!'));
+});
 
 /**
  * Listen on provided port, on all network interfaces.
