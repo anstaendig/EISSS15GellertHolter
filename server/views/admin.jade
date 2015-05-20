@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Product hinzufügen:
+  form(action='/carbs', method='post')
+    label(for='hersteller') Hersteller:
+    input(type='text', name='hersteller', id='hersteller', value='')
+    label(for='art') Art:
+    input(type='text', name='art', id='art', value='')
+    label(for='bezeichnung') Bezeichnung:
+    input(type='text', name='bezeichnung', id='bezeichnung', value='')
+    label(for='be') 1BE:
+    input(type='text', name='be', id='be', value='')
+    label(for='ke') 1kE:
+    input(type='text', name='ke', id='ke', value='')
+    input(type='submit')
