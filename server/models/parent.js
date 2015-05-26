@@ -12,5 +12,5 @@ var parentSchema = mongoose.Schema({
 	child: ObjectId
 }, { versionKey: false });
 
-// create the model for products and expose it to our app
+// create the model for parents and expose it to our app
 module.exports = mongoose.model('Parent', parentSchema);

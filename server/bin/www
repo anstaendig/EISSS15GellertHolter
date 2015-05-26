@@ -23,7 +23,6 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-
 /**
  * Open conneciton to database
  */

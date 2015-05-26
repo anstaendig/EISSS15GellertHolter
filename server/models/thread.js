@@ -16,5 +16,5 @@ var threadSchema = mongoose.Schema({
 		author: ObjectId }]
 }, { versionKey: false });
 
-// create the model for products and expose it to our app
+// create the model for threads and expose it to our app
 module.exports = mongoose.model('Thread', threadSchema);
