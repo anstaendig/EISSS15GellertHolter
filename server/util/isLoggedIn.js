@@ -5,8 +5,7 @@ var isLoggedIn = function(req, res, next) {
     return next();
 
   // if they aren't redirect them to the home page
-  console.log('User is not logged in!');
-  res.json('FAILED');
+  res.status(400).json('User not authorized!');
 };
 
 module.exports = isLoggedIn;

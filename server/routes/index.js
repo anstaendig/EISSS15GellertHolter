@@ -38,5 +38,6 @@ router.post('/login', function(req, res, next) {
       res.json(user);
     };
   });
-})
+});
+
 module.exports = router;

@@ -5,9 +5,8 @@ var isLoggedIn = require('../util/isLoggedIn');
 
 /* GET home page. */
 router.get('/', isLoggedIn, function(req, res, next) {
-  console.log('ERFOOOOLG!');
-  console.log(req.user);
-  res.status(200).json('DONE');
+  console.log('User who requested is authorized');
+  res.json(req.user);
 });
 
 router.post('/login', function(req, res, next) {
@@ -16,9 +15,10 @@ router.post('/login', function(req, res, next) {
     if (!user) { return res.json('Login failed'); }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.status(200).json(user);
+      console.log('User successfully logged in!');
+      res.json(user);
     });
   })(req, res, next);
-});
+})
 
 module.exports = router;

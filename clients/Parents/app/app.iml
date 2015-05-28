@@ -129,8 +129,9 @@
     <orderEntry type="library" exported="" name="play-services-analytics-7.3.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-appinvite-7.3.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-22.1.1" level="project" />
-    <orderEntry type="library" exported="" name="android-async-http-1.4.5" level="project" />
+    <orderEntry type="library" exported="" name="android-async-http-1.4.6" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-22.1.1" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-nearby-7.3.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-22.1.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-7.3.0" level="project" />

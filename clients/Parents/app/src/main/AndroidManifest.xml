@@ -30,6 +30,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.fh_koeln.gellert_holter.parents.activities.Main" />
         </activity>
+        <activity
+            android:name=".activities.Forum"
+            android:label="@string/title_activity_forum"
+            android:parentActivityName=".activities.Main"
+            android:launchMode="singleInstance" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.fh_koeln.gellert_holter.parents.activities.Main" />
+        </activity>
+        <activity
+            android:name=".activities.ShowThread"
+            android:label="@string/title_activity_show_thread"
+            android:parentActivityName=".activities.Forum"
+            android:launchMode="singleInstance">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.fh_koeln.gellert_holter.parents.activities.Forum" />
+        </activity>
     </application>
 
 </manifest>
