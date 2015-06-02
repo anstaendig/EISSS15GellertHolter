@@ -6,17 +6,27 @@ import android.os.Parcelable;
 /**
  * Created by anstaendig on 28/05/15.
  */
-public class Comment implements Parcelable{
+public class Comment implements Parcelable {
     public String author;
     public String body;
     public String date;
-
-    public Comment() {}
 
     public Comment(Parcel in) {
         this.author = in.readString();
         this.body = in.readString();
         this.date = in.readString();
+    }
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public String getBody() {
+        return this.body;
+    }
+
+    public String getDate() {
+        return this.date;
     }
 
     @Override

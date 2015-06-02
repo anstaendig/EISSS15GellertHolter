@@ -1,10 +1,10 @@
 package util;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.PersistentCookieStore;
 import com.loopj.android.http.RequestParams;
 
 /**
@@ -16,21 +16,18 @@ public class RestClient extends Application {
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
-    public static void setCookieStore(PersistentCookieStore cookieStore) {
-        client.setCookieStore(cookieStore);
-    }
+    private static String token = Authentication.token;
 
-    public RestClient() {
-        PersistentCookieStore cookieStore = new PersistentCookieStore(this);
-        client.setCookieStore(cookieStore);
-    }
+    public RestClient() {}
 
     public static void get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+        client.addHeader("x-access-token", token);
         client.get(getAbsoluteUrl(url), params, responseHandler);
 
     }
 
     public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+        client.addHeader("x-access-token", token);
         client.post(getAbsoluteUrl(url), params, responseHandler);
     }
 

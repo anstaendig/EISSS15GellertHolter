@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('../config/passport');
-var isLoggedIn = require('../util/isLoggedIn');
+var isAuthorized = require('../util/isAuthorized');
 
 /* GET home page. */
-router.get('/', isLoggedIn, function(req, res, next) {
+router.get('/', isAuthorized, function(req, res, next) {
   console.log('User who requested is authorized');
   res.json(req.user);
 });

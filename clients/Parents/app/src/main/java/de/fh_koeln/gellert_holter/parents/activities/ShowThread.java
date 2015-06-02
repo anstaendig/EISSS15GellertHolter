@@ -20,11 +20,8 @@ public class ShowThread extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_thread);
-
         Intent i = getIntent();
-
         List<Thread> thread = i.getParcelableArrayListExtra("thread");
-
         TextView author = (TextView) findViewById(R.id.author);
         author.setText(thread.get(0).getAuthor());
         TextView body = (TextView) findViewById(R.id.body);

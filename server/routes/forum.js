@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
 var Thread = require('../models/thread');
-
-var isLoggedIn = require('../util/isLoggedIn');
+var isAuthorized = require('../util/isAuthorized');
 
 var threads = [{
   '_id': '_id',
@@ -37,8 +35,6 @@ var thread = {
    	 author: 'author' }]
 };
 
-//router.use(isLoggedIn);
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // Respond with all thread
@@ -51,18 +47,6 @@ router.get('/', function(req, res, next) {
   */
   console.log(threads);
   res.json(threads);
-});
-
-router.get('/test', function(req, res, next) {
-  // Respond with all thread
-  /*
-  Thread.findById(req.params.id, function(err, thread, next) {
-    if (err) next(err);
-    console.log(thread);
-    res.json();
-  });
-  */
-  res.json(thread);
 });
 
 router.post('/', function(req, res, next) {

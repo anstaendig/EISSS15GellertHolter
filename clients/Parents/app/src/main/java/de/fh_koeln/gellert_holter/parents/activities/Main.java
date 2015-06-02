@@ -7,42 +7,28 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.loopj.android.http.PersistentCookieStore;
-
-import org.apache.http.cookie.Cookie;
-
-import java.util.List;
-
 import de.fh_koeln.gellert_holter.parents.R;
+import util.Authentication;
 
 public class Main extends Activity {
 
-    List<Cookie> cookies;
-    Boolean login = false;
-    PersistentCookieStore mCookieStore;
+    Boolean login;
+    Authentication authentication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mCookieStore = new PersistentCookieStore(getApplicationContext());
-        cookies = mCookieStore.getCookies();
-
-        for (Cookie c : cookies) {
-            if (c.getName().equals("connect.sid")) {
-                login = true;
-            }
-        }
-
-        if(!login) openLogin();
+        authentication = new Authentication(this);
+        login = authentication.isLoggedIn();
+        if (!login) authentication.openLogin();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        if(login) menu.getItem(1).setTitle("Logout");
+        if (login) menu.getItem(1).setTitle("Logout");
         return true;
     }
 
@@ -55,12 +41,14 @@ public class Main extends Activity {
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
             case R.id.action_login_logout:
-                if(login) {logout();}
-                else { openLogin() ;}
+                if (login) {
+                    authentication.logout();
+                } else {
+                    authentication.openLogin();
+                }
                 return true;
 
             case R.id.action_settings:
-
                 return true;
 
             default:
@@ -68,20 +56,8 @@ public class Main extends Activity {
         }
     }
 
-    private void openLogin() {
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
-    }
-
     public void startForum(View view) {
         Intent intent = new Intent(this, Forum.class);
         startActivity(intent);
     }
-
-    private void logout() {
-        mCookieStore.clear();
-        login = false;
-        openLogin();
-    }
-
 }

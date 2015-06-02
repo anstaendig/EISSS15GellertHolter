@@ -29,25 +29,17 @@ public class Forum extends Activity {
 
     ListView lv;
     ThreadAdapter ta;
-
     ArrayList<Thread> threads = null;
-
-    //Thread thread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
         lv = (ListView) findViewById(R.id.listView);
-
         threads = new ArrayList<>();
-
         ta = new ThreadAdapter(Forum.this, R.layout.thread, threads);
-
         lv.setAdapter(ta);
-
         getThreads();
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -57,42 +49,8 @@ public class Forum extends Activity {
                 showThread(thread);
             }
         });
-
-
     }
 
-    private void getThreads() {
-        RestClient.get("forum", null, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        Log.e("Thread: ", response.getJSONObject(i).toString());
-                        Thread thread = new Gson().fromJson(response.getJSONObject(i).toString(), Thread.class);
-                        threads.add(thread);
-                        Log.e("Threads: ", threads.get(i).toString());
-                    } catch (JSONException e) {
-                        // TO-DO: Handle Exception
-                    }
-                }
-                ta.notifyDataSetChanged();
-            }
-        });
-    }
-/*
-    private void requestThread(Thread t) {
-        //String relativeUrl = "forum/:" + t.getId();
-        RestClient.get("forum/test", null, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Thread thread = new Gson().fromJson(response.toString(), Thread.class);
-                ArrayList<Thread> list = new ArrayList<>();
-                list.add(thread);
-                showThread(list);
-            }
-        });
-    }
-*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -113,6 +71,25 @@ public class Forum extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void getThreads() {
+        RestClient.get("forum", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        Log.e("Thread: ", response.getJSONObject(i).toString());
+                        Thread thread = new Gson().fromJson(response.getJSONObject(i).toString(), Thread.class);
+                        threads.add(thread);
+                        Log.e("Threads: ", threads.get(i).toString());
+                    } catch (JSONException e) {
+                        // TO-DO: Handle Exception
+                    }
+                }
+                ta.notifyDataSetChanged();
+            }
+        });
     }
 
     private void showThread(Thread thread) {

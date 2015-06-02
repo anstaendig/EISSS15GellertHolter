@@ -10,6 +10,7 @@ var http = require('http');
 var mongoose = require('mongoose');
 var chalk = require('chalk');
 var database = require('../config/database');
+var secret = require('../config/secret');
 
 /**
  * Get port from environment and store in Express.
@@ -34,6 +35,11 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(callback) {
   console.log(chalk.green('Successfully connected to database!'));
 });
+
+/**
+ * Set secret for JSON Web Tokens
+ */
+app.set('secret', secret.secret);
 
 /**
  * Listen on provided port, on all network interfaces.

@@ -29,7 +29,7 @@ public class ThreadAdapter extends ArrayAdapter<Thread> {
         LinearLayout threadView;
         Thread t = getItem(position);
 
-        if(convertView == null) {
+        if (convertView == null) {
             threadView = new LinearLayout(getContext());
             String inflater = Context.LAYOUT_INFLATER_SERVICE;
             LayoutInflater li = (LayoutInflater) getContext().getSystemService(inflater);
