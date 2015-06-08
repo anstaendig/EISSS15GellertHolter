@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Parents</string>
+    <string name="app_name">DMS</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -11,4 +11,17 @@
     <string name="title_activity_forum">Forum</string>
     <string name="startForumButton">Forum</string>
     <string name="title_activity_show_thread">ShowThread</string>
+    <string name="startChildrenButton">children</string>
+    <string name="startParentsButton">parents</string>
+    <string name="title_activity_main_children">MainChildren</string>
+    <string name="title_activity_main_parents">MainParents</string>
+    <string name="newEntryButton">Neuer Eintrag</string>
+    <string name="logBook">Logbuch</string>
+    <string name="title_activity_add_entry">AddEntry</string>
+    <string name="title_activity_insulin_calculator">InsulinCalculator</string>
+    <string name="title_activity_basis_insulin">BasisInsulin</string>
+    <string name="title_activity_bolus_insulin">BolusInsulin</string>
+    <string name="title_activity_becalculator">BECalculator</string>
+    <string name="title_activity_product_search_result">ProductSearchResult</string>
+    <string name="title_activity_product_search">ProductSearch</string>
 </resources>

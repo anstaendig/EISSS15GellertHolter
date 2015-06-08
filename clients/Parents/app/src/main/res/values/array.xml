@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="insulin_type">
+        <item>Basisinsulin</item>
+        <item>Bolusinsulin</item>
+    </string-array>
+</resources>

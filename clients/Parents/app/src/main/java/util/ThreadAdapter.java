@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import de.fh_koeln.gellert_holter.parents.R;
+import de.fh_koeln.gellert_holter.dms.R;
 
 /**
  * Created by anstaendig on 27/05/15.

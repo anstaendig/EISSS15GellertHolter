@@ -9,9 +9,17 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/startForumButton"
-        android:id="@+id/button3"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="startForum"/>
+        android:text="@string/startChildrenButton"
+        android:id="@+id/children"
+        android:onClick="startChildren"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/startParentsButton"
+        android:id="@+id/parents"
+        android:onClick="startParents"
+        android:layout_below="@+id/children"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

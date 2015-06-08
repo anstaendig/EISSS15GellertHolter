@@ -1,4 +1,4 @@
-package de.fh_koeln.gellert_holter.parents.activities;
+package de.fh_koeln.gellert_holter.dms.activities.parents;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
-import de.fh_koeln.gellert_holter.parents.R;
+import de.fh_koeln.gellert_holter.dms.R;
 import util.RestClient;
 import util.Thread;
 import util.ThreadAdapter;
@@ -30,6 +30,7 @@ public class Forum extends Activity {
     ListView lv;
     ThreadAdapter ta;
     ArrayList<Thread> threads = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +71,8 @@ public class Forum extends Activity {
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
-    }
+    return super.onOptionsItemSelected(item);
+}
 
     private void getThreads() {
         RestClient.get("forum", null, new JsonHttpResponseHandler() {

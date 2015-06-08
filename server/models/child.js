@@ -11,7 +11,7 @@ var childSchema = mongoose.Schema({
 	gender: String,
 	sports: [String],
   diseases: [String],
-  log: [ObjectId],
+  log: ObjectId,
   parent: ObjectId,
   doc: ObjectId,
 	therapy: {
@@ -25,7 +25,7 @@ var childSchema = mongoose.Schema({
 		target: Integer,
 		correction: Integer
 	}
-}, { versionKey: false });
+}, { collection: 'children', versionKey: false });
 
 // create the model for children and expose it to our app
 module.exports = mongoose.model('Child', childSchema);

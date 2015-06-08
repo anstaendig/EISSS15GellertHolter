@@ -8,7 +8,7 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 var parentSchema = mongoose.Schema({
 	email: String,
 	password: String,
-	name: String,
+	token: String,
 	child: ObjectId
 }, { versionKey: false });
 

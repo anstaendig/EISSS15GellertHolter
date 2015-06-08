@@ -1,4 +1,4 @@
-package de.fh_koeln.gellert_holter.parents.activities;
+package de.fh_koeln.gellert_holter.dms.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,7 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import de.fh_koeln.gellert_holter.parents.R;
+import de.fh_koeln.gellert_holter.dms.R;
+import de.fh_koeln.gellert_holter.dms.activities.children.MainChildren;
+import de.fh_koeln.gellert_holter.dms.activities.parents.Forum;
+import de.fh_koeln.gellert_holter.dms.activities.parents.MainParents;
 import util.Authentication;
 
 public class Main extends Activity {
@@ -19,16 +22,16 @@ public class Main extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        authentication = new Authentication(this);
-        login = authentication.isLoggedIn();
-        if (!login) authentication.openLogin();
+        //authentication = new Authentication(this);
+        //login = authentication.isAuthorized();
+        //if (!login) authentication.openLogin();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        if (login) menu.getItem(1).setTitle("Logout");
+        //if (login) menu.getItem(1).setTitle("Logout");
         return true;
     }
 
@@ -56,8 +59,14 @@ public class Main extends Activity {
         }
     }
 
-    public void startForum(View view) {
+    public void startChildren(View view) {
+        Intent intent = new Intent(this, MainChildren.class);
+        startActivity(intent);
+    }
+
+    public void startParents(View view) {
         Intent intent = new Intent(this, Forum.class);
         startActivity(intent);
     }
 }
+

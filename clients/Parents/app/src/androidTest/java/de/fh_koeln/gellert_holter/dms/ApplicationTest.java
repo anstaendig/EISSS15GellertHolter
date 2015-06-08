@@ -1,4 +1,4 @@
-package de.fh_koeln.gellert_holter.parents;
+package de.fh_koeln.gellert_holter.dms;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

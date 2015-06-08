@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import de.fh_koeln.gellert_holter.parents.activities.Login;
+import de.fh_koeln.gellert_holter.dms.activities.Login;
 
 /**
  * Created by anstaendig on 30/05/15.
@@ -19,7 +19,6 @@ public class Authentication extends Application {
     SharedPreferences settings;
     static SharedPreferences.Editor editor;
     public static String token;
-
 
     public Authentication(Context context) {
         this.context = context;
@@ -34,7 +33,7 @@ public class Authentication extends Application {
         editor.commit();
     }
 
-    public boolean isLoggedIn() {
+    public boolean isAuthorized() {
         return !token.equals("");
     }
 

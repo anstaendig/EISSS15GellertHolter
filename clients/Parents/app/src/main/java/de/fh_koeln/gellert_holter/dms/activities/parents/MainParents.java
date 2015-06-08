@@ -1,39 +1,29 @@
-package de.fh_koeln.gellert_holter.parents.activities;
+package de.fh_koeln.gellert_holter.dms.activities.parents;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import java.util.List;
+import de.fh_koeln.gellert_holter.dms.R;
+import util.Authentication;
 
-import de.fh_koeln.gellert_holter.parents.R;
-import util.*;
-import util.Thread;
-
-public class ShowThread extends Activity {
+public class MainParents extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_thread);
-        Intent i = getIntent();
-        List<Thread> thread = i.getParcelableArrayListExtra("thread");
-        TextView author = (TextView) findViewById(R.id.author);
-        author.setText(thread.get(0).getAuthor());
-        TextView body = (TextView) findViewById(R.id.body);
-        body.setText(thread.get(0).getBody());
-        TextView date = (TextView) findViewById(R.id.date);
-        date.setText(thread.get(0).getDate());
+        setContentView(R.layout.activity_main_parents);
+        Authentication authentication = new Authentication(this);
+        if (!authentication.isAuthorized())
+            authentication.openLogin();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_show_thread, menu);
+        getMenuInflater().inflate(R.menu.menu_main_parents, menu);
         return true;
     }
 
@@ -51,4 +41,6 @@ public class ShowThread extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

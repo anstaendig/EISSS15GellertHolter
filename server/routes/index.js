@@ -15,54 +15,54 @@ router.post('/authenticate', function(req, res, next) {
   }, function(err, user) {
     if (err) next(err);
     if (!user) {
-      res.json({
+      res.status(404).json({
         succes: false,
         message: 'Authentication failed. User not found!'
       });
     } else if (user) {
       if (user.password != req.body.password) {
-        res.json({
+        res.status(401).json({
           success: false,
           message: 'Authentication failed. Wrong password!'
         });
       } else {
-        var token = jwt.sign(user, secret);
-        console.log(token);
         res.json({
           success: true,
           message: 'Enjoy your token!',
-          token: token
+          token: user.token
         });
       };
     };
   });
 });
 
-
-router.use(isAuthorized);
+router.post('/signup', function(req, res, next) {
+  console.log(chalk.yellow('Trying to register user with email address ') + chalk.blue(req.body.email) + chalk.yellow('...'));
+  Parent.findOne({
+    email: req.body.email
+  }, function(err, user) {
+    if (err) next(err);
+    if (!user) {
+      var parent = new Parent();
+      parent.email = req.body.email;
+      parent.password = req.body.password;
+      parent.save(function(err, user) {
+        user.token = jwt.sign(user, secret);
+        user.save(function(err, user1) {
+          res.json({
+            success: true,
+            message: 'Signup successfull',
+            token: user1.token
+          });
+          console.log(chalk.green('User with email address ') + chalk.blue(user1.email) +  chalk.green(' successfully registered with unique token:\n') + chalk.blue(user1.token));
+        });
+      });
+    }
+  });
+});
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-/*
-router.post('/signup', function(req, res, next) {
-  Parent.findOne({ email: req.body.email }, function(err, user) {
-    if (err) next(err);
-    if (user) {
-      res.json('E-Mail already exists');
-    } else {
-      var newParent = new Parent({
-        email: req.body.email,
-        password: req.body.password,
-        name: req.body.name
-      });
-      newParent.save(function(err) {
-        if (err) next(err);
-        console.log(chalk.green('Successfully saved ' + req.body.email + ' to database'));
-      });
-    };
-  });
-});
-*/
 
 module.exports = router;
