@@ -33,7 +33,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         protected EditText weight;
     }
 
-    public String getItemNew(int position) {
+    public String getProduct(int position) {
         return myItems.get(position);
     }
 

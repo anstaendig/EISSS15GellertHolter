@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import de.fh_koeln.gellert_holter.dms.R;
 
@@ -22,7 +25,10 @@ public class AddEntry extends Activity {
     protected void onRestart() {
         super.onRestart();
         Intent intent = getIntent();
-
+        Double be = intent.getDoubleExtra("be", 0.0);
+        TextView tv = (TextView) findViewById(R.id.be);
+        tv.setText(be.toString());
+        Log.e("BE", be.toString());
     }
 
     @Override

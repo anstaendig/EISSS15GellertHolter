@@ -63,7 +63,8 @@
         <activity
             android:name=".activities.children.AddEntry"
             android:label="@string/title_activity_add_entry"
-            android:parentActivityName=".activities.children.MainChildren" >
+            android:parentActivityName=".activities.children.MainChildren"
+            android:launchMode="singleInstance">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.fh_koeln.gellert_holter.dms.activities.children.MainChildren" />

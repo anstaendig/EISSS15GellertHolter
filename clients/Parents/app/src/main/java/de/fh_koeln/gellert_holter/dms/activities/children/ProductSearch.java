@@ -2,7 +2,6 @@ package de.fh_koeln.gellert_holter.dms.activities.children;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,12 +11,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import de.fh_koeln.gellert_holter.dms.R;
 import util.*;
-import util.Thread;
 
 public class ProductSearch extends Activity {
 
@@ -73,8 +70,10 @@ public class ProductSearch extends Activity {
         Intent intent = getIntent();
         List<Product> product = intent.getParcelableArrayListExtra("product");
         Log.e("TESTEN WIR HIER", product.toString());
-        products.add(product.get(0));
-        pa.notifyDataSetChanged();
+        if(product != null) {
+            products.add(product.get(0));
+            pa.notifyDataSetChanged();
+        }
     }
 
     public void searchProduct(View view) {
@@ -85,11 +84,17 @@ public class ProductSearch extends Activity {
     }
 
     public void backToEntry(View view) {
-        Log.e("TEST", "test");
+        Double total = 0.0;
         Intent intent = new Intent(this, AddEntry.class);
         for(int i = 0; i < lv.getCount(); i++) {
-            String item = pa.getItemNew(i);
-            Log.e("VALUES", "" +item);
+            String item = pa.getProduct(i);
+            Double tmp = Double.parseDouble(item);
+            Double tmp2 = Double.parseDouble(pa.getItem(i).getBe());
+            Double result = (tmp/100) * tmp2;
+            total += result;
         }
+        Log.e("RESULT: ", total.toString());
+        intent.putExtra("be", total);
+        startActivity(intent);
     }
 }
