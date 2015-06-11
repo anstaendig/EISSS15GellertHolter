@@ -5,12 +5,16 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 // define the schema for our parent model
-var parentSchema = mongoose.Schema({
-	email: String,
-	password: String,
-	token: String,
-	children: [ObjectId]
+var logEntrySchema = mongoose.Schema({
+	date: { type: Date, default: Date.now },
+	bloodsugar: Number,
+	be: Number,
+	beFactor: Number,
+  correctionValue: Number,
+  insulin: Number,
+  mood: String,
+  notes: String
 }, { versionKey: false });
 
 // create the model for parents and expose it to our app
-module.exports = mongoose.model('Parent', parentSchema);
+module.exports = mongoose.model('LogEntry', logEntrySchema);

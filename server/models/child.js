@@ -7,23 +7,23 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 // define the schema for our parent model
 var childSchema = mongoose.Schema({
 	name: String,
-	age: Integer,
+	age: Number,
 	gender: String,
 	sports: [String],
   diseases: [String],
-  log: ObjectId,
+  log: [ObjectId],
   parent: ObjectId,
   doc: ObjectId,
 	therapy: {
 		factor: {
-			morning: Double,
-			day: Double,
-			evening: Double,
-			type: String
+			morning: Number,
+			day: Number,
+			evening: Number,
+			type: { type: String }
 		},
-		type: String,
-		target: Integer,
-		correction: Integer
+		type: { type: String },
+		target: Number,
+		correction: Number
 	}
 }, { collection: 'children', versionKey: false });
 

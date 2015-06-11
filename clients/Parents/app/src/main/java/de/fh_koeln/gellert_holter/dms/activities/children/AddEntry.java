@@ -11,24 +11,44 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 import de.fh_koeln.gellert_holter.dms.R;
+import util.RestClient;
 
 public class AddEntry extends Activity {
+
+    EditText bsValue, notes;
+    TextView ieValue, beFactorValue, correctionValue, beValue;
+    Integer correctionValueResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_entry);
+        bsValue = (EditText) findViewById(R.id.bsValue);
+        beValue = (TextView) findViewById(R.id.beValue);
+        correctionValue = (TextView) findViewById(R.id.correctionValue);
+        ieValue = (TextView) findViewById(R.id.ieValue);
+        beFactorValue = (TextView) findViewById(R.id.beFactorValue);
+        notes = (EditText) findViewById(R.id.notes);
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
         Intent intent = getIntent();
-        Double be = intent.getDoubleExtra("be", 0.0);
-        TextView tv = (TextView) findViewById(R.id.be);
-        tv.setText(be.toString());
-        Log.e("BE", be.toString());
+        ArrayList<String> be = intent.getStringArrayListExtra("results");
+        beValue.setText(be.get(1));
+        correctionValue.setText(be.get(0));
+        beFactorValue.setText(be.get(2));
     }
 
     @Override
@@ -59,8 +79,31 @@ public class AddEntry extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void startBECalculator(View view) {
+    public void calculateBe(View view) {
         Intent intent = new Intent(this, ProductSearch.class);
+        intent.putExtra("bsValue", Integer.parseInt(bsValue.getText().toString()));
         startActivity(intent);
+    }
+
+    public void calculateInsulin(View view) {
+        Double insulinUnits = (Double.parseDouble(beValue.getText().toString()) + Double.parseDouble(correctionValue.getText().toString())) * Double.parseDouble(beFactorValue.getText().toString());
+        ieValue.setText(insulinUnits.toString());
+    }
+
+    public void addEntry(View view) {
+        RequestParams params = new RequestParams();
+        params.put("bloodsugar", bsValue.getText().toString());
+        params.put("be", beValue.getText().toString());
+        params.put("beFactor", beFactorValue.getText().toString());
+        params.put("correctionValue", correctionValue.getText().toString());
+        params.put("insulin", ieValue.getText().toString());
+        params.put("notes", notes.getText().toString());
+        //params.put("mood", mood.getText().toString());
+        RestClient.post("child/exampleChild/log", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Log.e("Response", response.toString());
+            }
+        });
     }
 }

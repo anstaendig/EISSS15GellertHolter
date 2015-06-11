@@ -78,22 +78,6 @@
                 android:value="de.fh_koeln.gellert_holter.dms.activities.children.AddEntry" />
         </activity>
         <activity
-            android:name=".activities.children.BasisInsulin"
-            android:label="@string/title_activity_basis_insulin"
-            android:parentActivityName=".activities.children.AddEntry" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.fh_koeln.gellert_holter.dms.activities.children.AddEntry" />
-        </activity>
-        <activity
-            android:name=".activities.children.BolusInsulin"
-            android:label="@string/title_activity_bolus_insulin"
-            android:parentActivityName=".activities.children.AddEntry" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.fh_koeln.gellert_holter.dms.activities.children.AddEntry" />
-        </activity>
-        <activity
             android:name=".activities.children.BECalculator"
             android:label="@string/title_activity_becalculator"
             android:parentActivityName=".activities.children.AddEntry" >

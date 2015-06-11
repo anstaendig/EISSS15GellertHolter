@@ -49,17 +49,25 @@ router.get('/', function(req, res, next) {
   res.json(threads);
 });
 
+// Create new forum thread
 router.post('/', function(req, res, next) {
   var newThread = new Thread({
     author: req.user._id,
     body: req.body.body,
-    topics: req.body.topics
+    topics: req.body.topics,
+    comments: req.body.comments
   });
   newThread.save(function(err) {
     if (err) next(err);
     console.log('Saved successfully');
     res.json(newThread);
+    newThread.save();
   })
+});
+
+// TODO Comment on a thread
+router.put('/:id', function(req, res, next) {
+
 });
 
 module.exports = router;
