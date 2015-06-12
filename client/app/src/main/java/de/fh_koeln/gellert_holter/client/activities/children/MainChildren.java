@@ -16,7 +16,7 @@ import org.apache.http.Header;
 import org.json.JSONObject;
 
 import de.fh_koeln.gellert_holter.client.R;
-import util.RestClient;
+import de.fh_koeln.gellert_holter.client.util.RestClient;
 
 public class MainChildren extends Activity {
 

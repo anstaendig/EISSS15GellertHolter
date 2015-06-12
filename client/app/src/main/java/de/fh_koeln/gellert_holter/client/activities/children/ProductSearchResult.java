@@ -20,9 +20,9 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 import de.fh_koeln.gellert_holter.client.R;
-import util.GridAdapter;
-import util.Product;
-import util.RestClient;
+import de.fh_koeln.gellert_holter.client.util.GridAdapter;
+import de.fh_koeln.gellert_holter.client.util.Product;
+import de.fh_koeln.gellert_holter.client.util.RestClient;
 
 public class ProductSearchResult extends Activity {
 

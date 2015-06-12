@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,21 +11,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.apache.http.Header;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import de.fh_koeln.gellert_holter.client.R;
-import util.Child;
-import util.Product;
-import util.ProductAdapter;
-import util.RestClient;
+import de.fh_koeln.gellert_holter.client.util.Child;
+import de.fh_koeln.gellert_holter.client.util.Product;
+import de.fh_koeln.gellert_holter.client.util.ProductAdapter;
 
 public class ProductSearch extends Activity {
 

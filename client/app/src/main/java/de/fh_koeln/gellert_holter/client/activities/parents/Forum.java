@@ -21,8 +21,8 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 import de.fh_koeln.gellert_holter.client.R;
-import util.*;
-import util.Thread;
+import de.fh_koeln.gellert_holter.client.util.*;
+import de.fh_koeln.gellert_holter.client.util.Thread;
 
 public class Forum extends Activity {
 

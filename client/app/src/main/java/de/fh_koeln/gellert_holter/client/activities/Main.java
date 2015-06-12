@@ -10,7 +10,7 @@ import android.view.View;
 import de.fh_koeln.gellert_holter.client.R;
 import de.fh_koeln.gellert_holter.client.activities.children.MainChildren;
 import de.fh_koeln.gellert_holter.client.activities.parents.Forum;
-import util.Authentication;
+import de.fh_koeln.gellert_holter.client.util.Authentication;
 
 public class Main extends Activity {
 

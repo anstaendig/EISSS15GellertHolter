@@ -2,7 +2,6 @@ package de.fh_koeln.gellert_holter.client.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +20,8 @@ import org.json.JSONObject;
 
 import de.fh_koeln.gellert_holter.client.R;
 import de.fh_koeln.gellert_holter.client.activities.parents.MainParents;
-import util.Authentication;
-import util.RestClient;
+import de.fh_koeln.gellert_holter.client.util.Authentication;
+import de.fh_koeln.gellert_holter.client.util.RestClient;
 
 public class Login extends Activity {
 

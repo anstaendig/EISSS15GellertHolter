@@ -27,8 +27,8 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import de.fh_koeln.gellert_holter.client.R;
-import util.Child;
-import util.RestClient;
+import de.fh_koeln.gellert_holter.client.util.Child;
+import de.fh_koeln.gellert_holter.client.util.RestClient;
 
 public class AddEntry extends Activity {
 
