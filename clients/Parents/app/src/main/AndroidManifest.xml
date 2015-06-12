@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.fh_koeln.gellert_holter.dms" >
+    package="de.fh_koeln.gellert_holter.dms">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -12,10 +12,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".activities.Main"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,7 @@
         <activity
             android:name=".activities.Login"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".activities.Main" >
+            android:parentActivityName=".activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.fh_koeln.gellert_holter.dms.activities.Main" />
@@ -34,7 +34,7 @@
             android:name=".activities.parents.Forum"
             android:label="@string/title_activity_forum"
             android:launchMode="singleInstance"
-            android:parentActivityName=".activities.Main" >
+            android:parentActivityName=".activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.fh_koeln.gellert_holter.dms.activities.Main" />
@@ -43,7 +43,7 @@
             android:name=".activities.parents.ShowThread"
             android:label="@string/title_activity_show_thread"
             android:launchMode="singleInstance"
-            android:parentActivityName=".activities.parents.Forum" >
+            android:parentActivityName=".activities.parents.Forum">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.parents.Forum" />
@@ -51,20 +51,19 @@
         <activity
             android:name=".activities.children.MainChildren"
             android:label="@string/title_activity_main_children"
-            android:parentActivityName=".activities.Main" >
+            android:parentActivityName=".activities.Main">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.fh_koeln.gellert_holter.dms.activities.Main" />
         </activity>
         <activity
             android:name=".activities.parents.MainParents"
-            android:label="@string/title_activity_main_parents" >
-        </activity>
+            android:label="@string/title_activity_main_parents"/>
         <activity
             android:name=".activities.children.AddEntry"
             android:label="@string/title_activity_add_entry"
-            android:parentActivityName=".activities.children.MainChildren"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:parentActivityName=".activities.children.MainChildren">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.fh_koeln.gellert_holter.dms.activities.children.MainChildren" />
@@ -72,15 +71,7 @@
         <activity
             android:name=".activities.children.InsulinCalculator"
             android:label="@string/title_activity_insulin_calculator"
-            android:parentActivityName=".activities.children.AddEntry" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.fh_koeln.gellert_holter.dms.activities.children.AddEntry" />
-        </activity>
-        <activity
-            android:name=".activities.children.BECalculator"
-            android:label="@string/title_activity_becalculator"
-            android:parentActivityName=".activities.children.AddEntry" >
+            android:parentActivityName=".activities.children.AddEntry">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.fh_koeln.gellert_holter.dms.activities.children.AddEntry" />
@@ -88,13 +79,11 @@
         <activity
             android:name=".activities.children.ProductSearchResult"
             android:label="@string/title_activity_product_search_result"
-            android:launchMode="singleInstance" >
-        </activity>
+            android:launchMode="singleInstance"/>
         <activity
             android:name=".activities.children.ProductSearch"
             android:label="@string/title_activity_product_search"
-            android:launchMode="singleInstance" >
-        </activity>
+            android:launchMode="singleInstance"/>
     </application>
 
 </manifest>

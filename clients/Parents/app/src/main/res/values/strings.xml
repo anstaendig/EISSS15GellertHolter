@@ -5,11 +5,11 @@
     <string name="action_settings">Settings</string>
     <string name="action_login_logout">Login</string>
     <string name="title_activity_login">Login</string>
-    <string name="email">email</string>
-    <string name="password">password</string>
+
+
     <string name="login">login</string>
     <string name="title_activity_forum">Forum</string>
-    <string name="startForumButton">Forum</string>
+
     <string name="title_activity_show_thread">ShowThread</string>
     <string name="startChildrenButton">children</string>
     <string name="startParentsButton">parents</string>
@@ -19,9 +19,8 @@
     <string name="logBook">Logbuch</string>
     <string name="title_activity_add_entry">AddEntry</string>
     <string name="title_activity_insulin_calculator">InsulinCalculator</string>
-    <string name="title_activity_basis_insulin">BasisInsulin</string>
-    <string name="title_activity_bolus_insulin">BolusInsulin</string>
-    <string name="title_activity_becalculator">BECalculator</string>
+
+
     <string name="title_activity_product_search_result">ProductSearchResult</string>
     <string name="title_activity_product_search">ProductSearch</string>
 </resources>

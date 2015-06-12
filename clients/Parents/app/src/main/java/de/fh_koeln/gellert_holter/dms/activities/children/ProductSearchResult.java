@@ -2,7 +2,6 @@ package de.fh_koeln.gellert_holter.dms.activities.children;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -22,8 +20,9 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 import de.fh_koeln.gellert_holter.dms.R;
-import util.*;
-import util.Thread;
+import util.GridAdapter;
+import util.Product;
+import util.RestClient;
 
 public class ProductSearchResult extends Activity {
 

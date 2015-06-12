@@ -11,7 +11,16 @@ var childSchema = mongoose.Schema({
 	gender: String,
 	sports: [String],
   diseases: [String],
-  log: [ObjectId],
+  log: [{
+		date: { type: Date, default: Date.now },
+		bloodsugar: Number,
+		be: Number,
+		beFactor: Number,
+  	correctionValue: Number,
+  	insulin: Number,
+  	mood: String,
+  	notes: String
+	}],
   parent: ObjectId,
   doc: ObjectId,
 	therapy: {

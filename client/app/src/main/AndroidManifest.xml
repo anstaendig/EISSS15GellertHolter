@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.fh_koeln.gellert_holter.client" >
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".activities.Main"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".activities.Login"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name=".activities.children.AddEntry"
+            android:label="@string/title_activity_add_entry"
+            android:launchMode="singleInstance">
+        </activity>
+        <activity
+            android:name=".activities.children.MainChildren"
+            android:label="@string/title_activity_main_children" >
+        </activity>
+        <activity
+            android:name=".activities.children.ProductSearch"
+            android:label="@string/title_activity_product_search"
+            android:launchMode="singleInstance">
+        </activity>
+        <activity
+            android:name=".activities.children.ProductSearchResult"
+            android:label="@string/title_activity_product_search_result"
+            android:launchMode="singleInstance">
+        </activity>
+        <activity
+            android:name=".activities.parents.MainParents"
+            android:label="@string/title_activity_main_parents" >
+        </activity>
+        <activity
+            android:name=".activities.parents.Forum"
+            android:label="@string/title_activity_forum"
+            android:launchMode="singleInstance">
+        </activity>
+        <activity
+            android:name=".activities.parents.ShowThread"
+            android:label="@string/title_activity_show_thread" >
+        </activity>
+    </application>
+</manifest>

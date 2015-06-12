@@ -68,7 +68,7 @@ public class Login extends Activity {
         RestClient.post("api/authenticate", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                String token = "";
+                String token;
                 try {
                     token = response.getString("token");
                     Authentication.setToken(token);

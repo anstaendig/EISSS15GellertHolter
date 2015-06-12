@@ -1,11 +1,8 @@
 package de.fh_koeln.gellert_holter.dms.activities.children;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -66,6 +63,9 @@ public class MainChildren extends Activity {
                 */
         Intent intent = new Intent(this, AddEntry.class);
         startActivity(intent);
+    }
+
+    public void startLogBook(View view) {
     }
 /*
     public void startLogBook(View view) {

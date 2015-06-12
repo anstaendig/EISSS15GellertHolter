@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Child = require('../models/child');
 var Parent = require('../models/parent');
-var LogEntry = require('../models/logEntry');
+var chalk = require('chalk');
 
 //var isAuthorized = require('../util/isAuthorized');
 
@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 
 // TODO URI template or /me (verificatin via token)
 router.get('/exampleChild', function(req, res, next) {
-  Child.findById("5578556338559bbaf3580f99", function(err, child) {
+  Child.findById("557ad78338559bbaf3580f9a", function(err, child) {
     res.json(child);
   })
 });
@@ -37,7 +37,7 @@ router.put('/exampleChild', function(req, res, next) {
 
 // TODO URI template or /me (verificatin via token)
 router.get('/exampleChild/log', function(req, res, next) {
-  Child.findById("5578556338559bbaf3580f99", function(err, child) {
+  Child.findById("557ad78338559bbaf3580f9a", function(err, child) {
     res.json(child.log);
   });
 });
@@ -45,19 +45,27 @@ router.get('/exampleChild/log', function(req, res, next) {
 // TODO URI template or /me (verificatin via token)
 router.post('/exampleChild/log', function(req, res, next) {
   console.log(req.body);
+  Child.findByIdAndUpdate("557ad78338559bbaf3580f9a", {$push: {log: req.body}}, {upsert: true, save: true}, function(err, child) {
+    if (err) next(err);
+    console.log(chalk.yellow('Entry has succesfully been added to log!'));
+    res.json(child);
+  });
+  /*
   var newEntry = new LogEntry({
     bloodsugar: req.body.bloodsugar,
     be: req.body.be,
     beFactor: req.body.beFactor,
     correctionValue: req.body.correctionValue,
-    insulin: req.body.insulin
+    insulin: req.body.insulin,
+    notes: req.body.notes
   }).save(function(err, entry) {
     Child.findByIdAndUpdate("5578556338559bbaf3580f99", {$push: {log: entry._id}}, {upsert: true, save: true}, function(err, child) {
       if (err) next(err);
-      console.log('Entry has succesfully been added to log!');
+      console.log(chalk.yellow('Entry has succesfully been added to log!'));
       res.json(child);
     });
   });
+  */
 });
 
 module.exports = router;

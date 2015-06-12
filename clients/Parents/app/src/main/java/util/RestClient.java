@@ -1,7 +1,6 @@
 package util;
 
 import android.app.Application;
-import android.content.Context;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;

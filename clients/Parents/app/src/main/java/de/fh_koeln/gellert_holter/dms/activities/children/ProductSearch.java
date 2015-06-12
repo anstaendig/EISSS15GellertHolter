@@ -18,11 +18,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import de.fh_koeln.gellert_holter.dms.R;
-import util.*;
+import util.Product;
+import util.ProductAdapter;
+import util.RestClient;
 
 public class ProductSearch extends Activity {
 
@@ -103,8 +104,8 @@ public class ProductSearch extends Activity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Calendar calendar = Calendar.getInstance();
                 int time = calendar.get(Calendar.HOUR_OF_DAY);
-                JSONObject therapy = null;
-                JSONObject factor = null;
+                JSONObject therapy;
+                JSONObject factor;
                 Double beFactor = 0.0;
                 Double total = 0.0;
                 Intent intent = new Intent(context, AddEntry.class);

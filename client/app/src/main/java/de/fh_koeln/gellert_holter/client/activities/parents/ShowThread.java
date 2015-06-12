@@ -1,42 +1,24 @@
-package de.fh_koeln.gellert_holter.dms.activities.children;
+package de.fh_koeln.gellert_holter.client.activities.parents;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ListView;
 
-import com.google.gson.Gson;
-import com.loopj.android.http.JsonHttpResponseHandler;
+import de.fh_koeln.gellert_holter.client.R;
 
-import org.apache.http.Header;
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.util.ArrayList;
-
-import de.fh_koeln.gellert_holter.dms.R;
-import util.*;
-
-public class BECalculator extends Activity {
-
-    EditText search;
+public class ShowThread extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_search);
-        search = (EditText) findViewById(R.id.search);
+        setContentView(R.layout.activity_show_thread);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_becalculator, menu);
+        getMenuInflater().inflate(R.menu.menu_show_thread, menu);
         return true;
     }
 
