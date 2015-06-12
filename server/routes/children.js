@@ -50,22 +50,6 @@ router.post('/exampleChild/log', function(req, res, next) {
     console.log(chalk.yellow('Entry has succesfully been added to log!'));
     res.json(child);
   });
-  /*
-  var newEntry = new LogEntry({
-    bloodsugar: req.body.bloodsugar,
-    be: req.body.be,
-    beFactor: req.body.beFactor,
-    correctionValue: req.body.correctionValue,
-    insulin: req.body.insulin,
-    notes: req.body.notes
-  }).save(function(err, entry) {
-    Child.findByIdAndUpdate("5578556338559bbaf3580f99", {$push: {log: entry._id}}, {upsert: true, save: true}, function(err, child) {
-      if (err) next(err);
-      console.log(chalk.yellow('Entry has succesfully been added to log!'));
-      res.json(child);
-    });
-  });
-  */
 });
 
 module.exports = router;
