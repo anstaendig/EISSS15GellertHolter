@@ -30,7 +30,6 @@ public class Forum extends Activity {
     ThreadAdapter ta;
     ArrayList<Thread> threads = null;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

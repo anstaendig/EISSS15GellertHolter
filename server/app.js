@@ -5,21 +5,15 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var routes = require('./routes/index');
+var account = require('./routes/account');
 var carbs = require('./routes/carbs');
-var admin = require('./routes/admin');
 var forum = require('./routes/forum');
 var parent = require('./routes/parent');
 var children = require('./routes/children');
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST', 'PUT', 'DELETE');
@@ -27,9 +21,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/api', routes);
+app.use('/', account);
 app.use('/carbs', carbs);
-app.use('/admin', admin);
 app.use('/forum', forum);
 app.use('/parent', parent);
 app.use('/children', children);

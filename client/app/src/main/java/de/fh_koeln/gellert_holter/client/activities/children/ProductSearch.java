@@ -32,8 +32,6 @@ public class ProductSearch extends Activity {
     Activity context;
     Integer bsValue;
 
-    //Long BE;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +92,6 @@ public class ProductSearch extends Activity {
         startActivity(intent);
     }
 
-    // TODO Take content from local child profile instead of a server request
     public void calculateUnits(View view) {
         Calendar calendar = Calendar.getInstance();
         Integer time = calendar.get(Calendar.HOUR_OF_DAY);
