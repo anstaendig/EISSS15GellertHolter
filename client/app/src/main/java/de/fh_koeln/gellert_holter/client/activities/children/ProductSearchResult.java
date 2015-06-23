@@ -28,7 +28,7 @@ public class ProductSearchResult extends Activity {
 
     GridView gv;
     GridAdapter ga;
-    ArrayList<Product> products = null;
+    ArrayList<Product> products;
     String search;
     Activity context;
 
@@ -48,17 +48,17 @@ public class ProductSearchResult extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Product product = (Product) gv.getItemAtPosition(position);
-                Log.e("TEST: ", product.getDescription());
                 addProductToList(product);
             }
         });
     }
 
     private void addProductToList(Product product) {
-        ArrayList<Product> list = new ArrayList<>();
-        list.add(product);
+        //ArrayList<Product> list = new ArrayList<>();
+        //list.add(product);
         Intent intent = new Intent(this, ProductSearch.class);
-        intent.putParcelableArrayListExtra("product", list);
+        intent.putExtra("product", product);
+        //intent.putParcelableArrayListExtra("product", list);
         startActivity(intent);
     }
 
@@ -80,20 +80,17 @@ public class ProductSearchResult extends Activity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     void searchProducts(String search) {
-        RestClient.get("carbs/" + search, null, new JsonHttpResponseHandler() {
+        RestClient.get("carbs?=" + search, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         Product product = new Gson().fromJson(response.getJSONObject(i).toString(), Product.class);
-                        Log.e("PRODUCT-TYPE:", product.getType());
                         products.add(product);
-                        Log.e("TEST: ", products.get(i)._id);
                     } catch (JSONException e) {
                         // TO-DO: Handle Exception
                     }

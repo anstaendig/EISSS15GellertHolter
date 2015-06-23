@@ -17,7 +17,7 @@ public class RestClient extends Application {
 
     public RestClient() {}
 
-    public static void get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+    public static void get(String url, RequestParams params, JsonHttpResponseHandler responseHandler) {
         client.addHeader("x-access-token", token);
         client.get(getAbsoluteUrl(url), params, responseHandler);
 
@@ -26,6 +26,16 @@ public class RestClient extends Application {
     public static void post(String url, RequestParams params, JsonHttpResponseHandler responseHandler) {
         client.addHeader("x-access-token", token);
         client.post(getAbsoluteUrl(url), params, responseHandler);
+    }
+
+    public static void put(String url, RequestParams params, JsonHttpResponseHandler responseHandler) {
+        client.addHeader("x-access-token", token);
+        client.put(getAbsoluteUrl(url), params, responseHandler);
+    }
+
+    public static void delete(String url, RequestParams params, JsonHttpResponseHandler responseHandler) {
+        client.addHeader("x-access-token", token);
+        client.put(getAbsoluteUrl(url), params, responseHandler);
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {

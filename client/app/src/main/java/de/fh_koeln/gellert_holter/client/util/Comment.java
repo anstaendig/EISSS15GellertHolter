@@ -4,9 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Comment implements Parcelable {
-    public String author;
     public String body;
     public String date;
+    public String author;
 
     public Comment(Parcel in) {
         this.author = in.readString();

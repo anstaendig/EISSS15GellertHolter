@@ -78,9 +78,9 @@ public class ProductSearch extends Activity {
     protected void onRestart() {
         super.onRestart();
         Intent intent = getIntent();
-        List<Product> product = intent.getParcelableArrayListExtra("product");
+        Product product = intent.getParcelableExtra("product");
         if (product != null) {
-            products.add(product.get(0));
+            products.add(product);
             pa.notifyDataSetChanged();
         }
     }
@@ -91,6 +91,7 @@ public class ProductSearch extends Activity {
         intent.putExtra("productSearch", productSearch);
         startActivity(intent);
     }
+
 
     public void calculateUnits(View view) {
         Calendar calendar = Calendar.getInstance();
@@ -127,6 +128,7 @@ public class ProductSearch extends Activity {
 
         Intent intent = new Intent(context, AddEntry.class);
         intent.putStringArrayListExtra("results", results);
+
         startActivity(intent);
     }
 

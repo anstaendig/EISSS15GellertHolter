@@ -5,19 +5,19 @@ var chalk = require('chalk');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(chalk.yellow('Requesting all products from database... '));
-  Product.find({}, function(err, products) {
-    console.log(chalk.green('Found: ') + chalk.blue(JSON.stringify(products, null, 2)));
-    res.json(products);
-  });
-});
-
-router.get('/:product', function(req, res, next) {
-  console.log(chalk.yellow('Searching for: ') + chalk.blue(req.params.product));
-  Product.find({description: {$regex : ".*" + req.params.product + ".*", $options: 'i'}}, function(err, products) {
-    console.log(chalk.green('Found: ') + chalk.blue(JSON.stringify(products, null, 2)));
-    res.json(products);
-  });
+  if(typeof req.query.search !== "undefined") {
+    console.log(chalk.yellow('Searching for: ') + chalk.blue(req.query.search));
+    Product.find({description: {$regex : ".*" + req.query.search + ".*", $options: 'i'}}, function(err, products) {
+      console.log(chalk.green('Found: ') + chalk.blue(JSON.stringify(products, null, 2)));
+      res.json(products);
+    });
+  } else {
+    console.log(chalk.yellow('Requesting all products from database... '));
+    Product.find({}, function(err, products) {
+      console.log(chalk.green('Found: ') + chalk.blue(JSON.stringify(products, null, 2)));
+      res.json(products);
+    });
+  }
 });
 
 router.post('/', function(req, res, next) {

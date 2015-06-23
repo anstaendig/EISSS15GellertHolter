@@ -43,9 +43,7 @@ public class Forum extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getBaseContext(), "Click registered", Toast.LENGTH_SHORT).show();
-                Thread thread = (Thread) lv.getItemAtPosition(position);
-                Log.e("TEST: ", thread.getAuthor());
-                showThread(thread);
+                showThread((Thread) lv.getItemAtPosition(position));
             }
         });
     }
@@ -78,10 +76,8 @@ public class Forum extends Activity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
                     try {
-                        Log.e("Thread: ", response.getJSONObject(i).toString());
                         Thread thread = new Gson().fromJson(response.getJSONObject(i).toString(), Thread.class);
                         threads.add(thread);
-                        Log.e("Threads: ", threads.get(i).toString());
                     } catch (JSONException e) {
                         // TO-DO: Handle Exception
                     }
@@ -92,10 +88,8 @@ public class Forum extends Activity {
     }
 
     private void showThread(Thread thread) {
-        ArrayList<Thread> list = new ArrayList<>();
-        list.add(thread);
         Intent intent = new Intent(this, ShowThread.class);
-        intent.putParcelableArrayListExtra("thread", list);
+        intent.putExtra("thread", thread);
         startActivity(intent);
     }
 }

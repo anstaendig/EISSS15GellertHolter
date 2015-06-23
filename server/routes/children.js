@@ -19,6 +19,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.post('/', function(req, res, next) {
+  //TODO Create new child profile
+  
+})
+
 // TODO URI template /:childId
 router.get('/exampleChild', function(req, res, next) {
   console.log(chalk.yellow('Searching for chil with id: ') + chalk.blue('PUT ID HERE') + chalk.yellow('...'));
@@ -52,6 +57,7 @@ router.get('/exampleChild/log', function(req, res, next) {
 
 // TODO URI template /:childId/log
 // TODO change to put
+// TODO GCM to parent
 router.post('/exampleChild/log', function(req, res, next) {
   console.log(chalk.yellow('Following entry recieved: '));
   console.log(chalk.blue(JSON.stringify(req.body, null, 2)));

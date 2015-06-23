@@ -3,21 +3,42 @@ var router = express.Router();
 var Thread = require('../models/thread');
 var isAuthorized = require('../util/isAuthorized');
 
+// TODO: Delete dummy data and get from database
 var threads = [{
   '_id': '_id',
   author: 'author',
   date: 'date',
   body: 'body',
   topics: ['/topic1', '/topic'],
-  comments: [
-    {body: 'body',
-     date: 'date',
-     author: 'author' },
-     {
-   	 body: 'body',
-   	 date: 'date',
-   	 author: 'author' }]
+  comments: [{
+    author: 'author1',
+    body: 'body1',
+    date: 'date1' },
+  {
+    author: 'author3',
+   	body: 'body2',
+   	date: 'date3' }]
+},
+{
+  '_id': '_id',
+  author: 'author',
+  date: 'date',
+  body: 'body',
+  topics: ['/topic1', '/topic'],
+  comments: [{
+    body: 'body',
+    date: 'date',
+    author: 'author' },
+  {
+    body: 'body2',
+   	date: 'date2',
+   	author: 'author2' }]
 }];
+
+
+
+
+
 
 var thread = {
   '_id': '_id',
@@ -35,7 +56,6 @@ var thread = {
    	 author: 'author' }]
 };
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   // Respond with all thread
   /*
@@ -50,6 +70,7 @@ router.get('/', function(req, res, next) {
 });
 
 // Create new forum thread
+// TODO: Matchmaking and GCM to other parents
 router.post('/', function(req, res, next) {
   var newThread = new Thread({
     author: req.user._id,
@@ -63,6 +84,8 @@ router.post('/', function(req, res, next) {
     res.json(newThread);
     newThread.save();
   })
+
+  
 });
 
 // TODO Comment on a thread

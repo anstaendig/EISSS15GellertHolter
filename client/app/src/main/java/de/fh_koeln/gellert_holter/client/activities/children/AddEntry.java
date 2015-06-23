@@ -127,7 +127,7 @@ public class AddEntry extends Activity {
         child.log.add(logEntry);
         String newProfile = new Gson().toJson(child);
         editor.putString("profile", newProfile);
-        editor.commit();
+        editor.apply();
         RequestParams params = new RequestParams();
         params.put("date", logEntry.date);
         params.put("bloodsugar", logEntry.bloodsugar);

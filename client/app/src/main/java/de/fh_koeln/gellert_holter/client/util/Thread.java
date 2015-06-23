@@ -65,7 +65,7 @@ public class Thread implements Parcelable {
         dest.writeString(date);
         dest.writeString(body);
         dest.writeStringList(topics);
-        dest.writeList(comments);
+        dest.writeTypedList(comments);
     }
 
     public static final Parcelable.Creator<Thread> CREATOR = new Parcelable.Creator<Thread>() {

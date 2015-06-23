@@ -1,18 +1,56 @@
 package de.fh_koeln.gellert_holter.client.activities.parents;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import de.fh_koeln.gellert_holter.client.R;
+import de.fh_koeln.gellert_holter.client.util.Comment;
+import de.fh_koeln.gellert_holter.client.util.CommentAdapter;
+import de.fh_koeln.gellert_holter.client.util.Thread;
 
 public class ShowThread extends Activity {
+    ArrayList<Comment> commentList;
+    CommentAdapter ca;
+    Thread thread;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_thread);
+        ListView lv = (ListView) findViewById(R.id.commentListView);
+        commentList = new ArrayList<>();
+        ca = new CommentAdapter(ShowThread.this, R.layout.comment, commentList);
+        lv.setAdapter(ca);
+        Intent intent = getIntent();
+        thread = intent.getParcelableExtra("thread");
+        TextView author = (TextView) findViewById(R.id.author);
+        TextView date = (TextView) findViewById(R.id.date);
+        TextView body = (TextView) findViewById(R.id.body);
+        //TextView topics = (TextView) findViewById(R.id.topics);
+
+        author.setText(thread.getAuthor());
+        date.setText(thread.getDate());
+        body.setText(thread.getBody());
+        //topics.setText(thread.getTopics().toString());
+        //comments.setText(thread.getComments().toString());
+        getComments();
+    }
+
+    public void getComments() {
+        Log.e("Length of Comments", thread.comments.size() + "");
+        for (int i = 0; i < thread.comments.size(); i++) {
+            commentList.add(thread.comments.get(i));
+        }
+        ca.notifyDataSetChanged();
     }
 
     @Override
