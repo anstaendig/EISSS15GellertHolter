@@ -48,7 +48,6 @@ public class Forum extends Activity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), "Click registered", Toast.LENGTH_SHORT).show();
                 showThread((Thread) lv.getItemAtPosition(position));
             }
         });

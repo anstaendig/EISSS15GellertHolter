@@ -52,7 +52,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             view = convertView;
         }
         ViewHolder holder = (ViewHolder) view.getTag();
-        holder.text.setText(list.get(position).getBrand());
+        holder.text.setText(list.get(position).getDescription());
         holder.weight.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
