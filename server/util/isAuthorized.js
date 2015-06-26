@@ -2,6 +2,7 @@ var secret = require('../config/secret').secret;
 var jwt = require('jsonwebtoken');
 var chalk = require('chalk');
 
+// Funktion zur überprüfungen des übergebenen Token!
 var isAuthorized = function(req, res, next) {
   console.log(chalk.yellow('Checking if user is authorized...'));
   var token = req.headers['x-access-token'];
@@ -14,7 +15,8 @@ var isAuthorized = function(req, res, next) {
         });
       } else {
         req.decoded = decoded;
-        console.log(chalk.green(decoded.name + '(' + decoded._id + ') has been verified!'));
+        console.log(chalk.green(decoded.name + '(' + decoded._id +
+          ') has been verified!'));
         next();
       }
     });

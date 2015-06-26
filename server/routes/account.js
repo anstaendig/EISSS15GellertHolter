@@ -8,7 +8,6 @@ var isAuthorized = require('../util/isAuthorized');
 var Parent = require('../models/parent');
 
 //TODO: Find another way to initially authorize and/or signup to service without /signup and /authorize because they're not rest
-
 router.post('/authenticate', function(req, res, next) {
   Parent.findOne({
     email: req.body.email

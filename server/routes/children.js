@@ -5,6 +5,7 @@ var Parent = require('../models/parent');
 var chalk = require('chalk');
 //var isAuthorized = require('../util/isAuthorized');
 
+// Respond mit einem Array aller Kinder, die Eltern angelegt haben
 router.get('/', function(req, res, next) {
   // TODO take parent ID from req via token
   Parent.findById("556da21a09ed2732f501d55b", function(err, parent) {
@@ -20,10 +21,12 @@ router.get('/', function(req, res, next) {
   });
 });
 
+// Neues Kind-Profil erstellen und im Eltern-Profil referenzieren
 router.post('/', function(req, res, next) {
   //TODO Create new child profile
-})
+});
 
+// Respond mit einem Kind zur eindeutigen ID :child
 router.get('/:child', function(req, res, next) {
   console.log(chalk.yellow('Searching for chil with id: ') + chalk.blue(req
     .params.child) + chalk.yellow('...'));
@@ -33,17 +36,19 @@ router.get('/:child', function(req, res, next) {
     console.log(chalk.green(
       'The following child has been found and sent: '));
     console.log(chalk.blue(JSON.stringify(child, null, 2)));
-  })
+  });
 });
 
+// Kind Profil mit der eindeutigen ID :child wird mit übergebenen Parametern geupdated
 router.put('/:child', function(req, res, next) {
   Parent.findById(req.params.child, function(err, parent) {
     Child.findByIdAndUpdate(parent.child, function(err, child) {
       // TODO: Update profile of child
-    })
-  })
+    });
+  });
 });
 
+// Respond mit dem Logbuch des Kinds mit der eindeutigen ID :child
 router.get('/:child/log', function(req, res, next) {
   console.log(chalk.yellow('Searching for logbook from child with id: ') +
     chalk.blue('PUT ID HERE') + chalk.yellow('...'));
@@ -56,6 +61,7 @@ router.get('/:child/log', function(req, res, next) {
   });
 });
 
+// Hinzufügen eines Eintrags zum Logbuch des Kindes mit der eindeutigen ID :child
 router.put('/:child/log', function(req, res, next) {
   // TODO: Send notification to parent via gcm
   console.log(chalk.yellow('Following entry recieved: '));

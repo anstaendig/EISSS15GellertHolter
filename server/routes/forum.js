@@ -53,6 +53,7 @@ var thread = {
   }]
 };
 
+// Repsond mit allen Threads im Forum
 router.get('/', function(req, res, next) {
   // Respond with all thread
   /*
@@ -66,7 +67,7 @@ router.get('/', function(req, res, next) {
   res.json(threads);
 });
 
-// Create new forum thread
+// Erstelle einen neuen Thread mit den übergebeben Parametern
 // TODO: Matchmaking and GCM to other parents
 router.post('/', function(req, res, next) {
   var newThread = new Thread({
@@ -80,16 +81,23 @@ router.post('/', function(req, res, next) {
     console.log('Saved successfully');
     res.json(newThread);
     newThread.save();
-  })
+  });
 
   Parent.findById("556da21a09ed2732f501d55b", function(err, parent) {
     Child.findById(parent.children[0], function(err, child) {
 
-    })
-  })
+    });
+  });
 
 });
 
+// Respond mit Thread mit der eindeutigen ID :id
+// TODO: search database for thread and send it back
+router.get('/:id', function(req, res, next) {
+
+});
+
+// Dem thread mit der eindeutigen ID :id wirh ein Kommentar aus den übergebenen Parametern hinzugefügt
 // TODO Comment on a thread
 router.put('/:id', function(req, res, next) {
 
