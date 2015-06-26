@@ -32,8 +32,6 @@ public class MainChildren extends Activity {
 
     String PREFS_NAME = "sharedPreferences";
     SharedPreferences settings;
-
-    SharedPreferences.Editor editor;
     Activity context;
     TextView lastBs, lastIe, lastDate, lastBe;
 
@@ -49,6 +47,8 @@ public class MainChildren extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_children);
+
+
         lastBs = (TextView) findViewById(R.id.lastEntryBS);
         lastIe = (TextView) findViewById(R.id.lastEntryIe);
         lastDate = (TextView) findViewById(R.id.lastEntryDate);
@@ -61,11 +61,7 @@ public class MainChildren extends Activity {
         lastBs.setText(log.get(log.size() - 1).bloodsugar.toString());
         lastIe.setText(log.get(log.size() - 1).insulin.toString());
         lastDate.setText(log.get(log.size() - 1).date);
-
         lastBe.setText(be.toString());
-
-        updateProfile();
-
     }
 
     /**
@@ -105,22 +101,7 @@ public class MainChildren extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Das lokale Kindprofil wird mit dem Kindprofil auf dem Server synchronisiert.
-     */
-    private void updateProfile() {
-        String target = "children/" + child._id;
-        RestClient.get(target, null, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.e("Response: ", response.toString());
-                editor = settings.edit();
-                editor.putString("profile", response.toString());
-                editor.apply();
-                Toast.makeText(context, "Profil wurde erfolgreich aktualisiert!", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+
 
     public void startNewEntry(View view) {
         Intent intent = new Intent(this, AddEntry.class);
