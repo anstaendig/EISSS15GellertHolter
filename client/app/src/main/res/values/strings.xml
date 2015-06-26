@@ -10,4 +10,7 @@
     <string name="title_activity_main_parents">MainParents</string>
     <string name="title_activity_forum">Forum</string>
     <string name="title_activity_show_thread">ShowThread</string>
+    <string name="title_activity_new_thread">NewThread</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

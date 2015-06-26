@@ -7,6 +7,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+/**
+ * Statischer RestClient zur asynchronen Kommunikation via HTTP Methoden GET, PUT, POST, DELETE
+ * zwischen Client und Server.
+ * Access-Token wird bei jedem Request über Header übermittelt für zustandslose Authentifizierung.
+ */
 public class RestClient extends Application {
 
     private static final String BASE_URL = "http://10.0.2.2:3000/";
@@ -15,7 +20,8 @@ public class RestClient extends Application {
 
     private static String token = Authentication.token;
 
-    public RestClient() {}
+    public RestClient() {
+    }
 
     public static void get(String url, RequestParams params, JsonHttpResponseHandler responseHandler) {
         client.addHeader("x-access-token", token);

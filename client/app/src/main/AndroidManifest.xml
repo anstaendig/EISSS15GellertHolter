@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.fh_koeln.gellert_holter.client" >
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -19,7 +20,7 @@
         <activity
             android:name=".activities.children.AddEntry"
             android:label="@string/title_activity_add_entry"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" >
         </activity>
         <activity
             android:name=".activities.children.MainChildren"
@@ -28,12 +29,12 @@
         <activity
             android:name=".activities.children.ProductSearch"
             android:label="@string/title_activity_product_search"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" >
         </activity>
         <activity
             android:name=".activities.children.ProductSearchResult"
             android:label="@string/title_activity_product_search_result"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" >
         </activity>
         <activity
             android:name=".activities.parents.MainParents"
@@ -42,11 +43,20 @@
         <activity
             android:name=".activities.parents.Forum"
             android:label="@string/title_activity_forum"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" >
         </activity>
         <activity
             android:name=".activities.parents.ShowThread"
             android:label="@string/title_activity_show_thread" >
         </activity>
+        <activity
+            android:name=".activities.parents.NewThread"
+            android:label="@string/title_activity_new_thread"
+            android:parentActivityName=".activities.parents.Forum" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.fh_koeln.gellert_holter.client.activities.parents.Forum" />
+        </activity>
     </application>
+
 </manifest>

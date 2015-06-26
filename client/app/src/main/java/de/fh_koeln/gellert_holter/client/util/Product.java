@@ -3,6 +3,13 @@ package de.fh_koeln.gellert_holter.client.util;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * Klasse zur Implementierung des Typs "Product". Muss äquivalent zur Datenstruktur der Objekte auf dem
+ * Server sein, um mittels GSON-Library die JSON-Objekte vom Server in Java-Objekte zu parsen.
+ *
+ * Implementiert das Interface Parcelable, damit diese Objekte via Intent zwischen den Activities
+ * versendet werden können.
+ */
 public class Product implements Parcelable {
     public String _id;
     public String brand;

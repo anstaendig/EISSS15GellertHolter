@@ -13,6 +13,10 @@ import java.util.List;
 
 import de.fh_koeln.gellert_holter.client.R;
 
+
+/**
+ * Notwendiger Adapter zum DataBinding vom implementierten Typ "Product" an ListView
+ */
 public class ProductAdapter extends ArrayAdapter<Product> {
 
     private final List<Product> list;

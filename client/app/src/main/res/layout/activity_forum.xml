@@ -15,4 +15,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Neuer Eintrag"
+        android:id="@+id/button9"
+        android:layout_below="@+id/listView"
+        android:layout_centerHorizontal="true"
+        android:onClick="newThread"/>
+
 </RelativeLayout>

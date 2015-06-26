@@ -30,6 +30,9 @@ import de.fh_koeln.gellert_holter.client.R;
 import de.fh_koeln.gellert_holter.client.util.Child;
 import de.fh_koeln.gellert_holter.client.util.RestClient;
 
+/**
+ * Activity zur Erstellung eines Logbucheintrags
+ */
 public class AddEntry extends Activity {
 
     EditText bsValue, notes, mood;
@@ -51,6 +54,11 @@ public class AddEntry extends Activity {
         notes = (EditText) findViewById(R.id.notes);
     }
 
+    /**
+     * Bei Rückkehr auf die Activity werden aus dem Intent die nötigen Werte
+     * (Broteinheiten in Mahlzeiten, Korrekturinsulin basierend auf Blutzucker etc..)
+     * gelesen und daraufhin die Insulineinheiten berechnet und angezeigt.
+     */
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -91,6 +99,10 @@ public class AddEntry extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Starten der Activity, um Nahrungsmittel zu suchen
+     * @param view
+     */
     public void calculateInsulin(View view) {
         new AlertDialog.Builder(context)
                 .setTitle("Broteinheiten")
@@ -106,6 +118,12 @@ public class AddEntry extends Activity {
                 .show();
     }
 
+
+    /**
+     * Alle Informationen zum Logbucheintrag werden im Profil des Kindes sowohl auf dem Client
+     * gespeichert, als auch an das Profil des Kindes auf dem Server gesendet.
+     * @param view
+     */
     public void addEntry(View view) {
         TimeZone tz = TimeZone.getTimeZone("GMT");
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm'Z'");
@@ -137,7 +155,8 @@ public class AddEntry extends Activity {
         params.put("insulin", logEntry.insulin);
         params.put("notes", logEntry.notes);
         //params.put("mood", mood.getText().toString());
-        RestClient.post("children/exampleChild/log", params, new JsonHttpResponseHandler() {
+        String target = "children/" + child._id + "/log";
+        RestClient.put(target, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.e("Response", response.toString());

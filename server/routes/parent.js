@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var isAuthorized = require('../util/isAuthorized');
+//var isAuthorized = require('../util/isAuthorized');
 
-router.get('/:parent/children', isAuthorized, function(req, res, next) {
+router.get('/:parent/children', function(req, res, next) {
+  // TODO: Find all children for parent and send them back
   console.log('User who requested is authorized');
   res.json(req.user);
 });

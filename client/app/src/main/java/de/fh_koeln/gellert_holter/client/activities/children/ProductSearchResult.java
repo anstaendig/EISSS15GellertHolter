@@ -32,6 +32,12 @@ public class ProductSearchResult extends Activity {
     String search;
     Activity context;
 
+    /**
+     * GridAdapter zum DataBinding von Suchergebnissen und GridView.
+     * Über Intent wird Suchbegriff ausgelesen und searchProducts ausgeführt.
+     * Beim Click auf ein Suchergebnis im GrdView wird es der Liste der Nahrungsmittel hinzugefügt.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         context = this;
@@ -53,12 +59,14 @@ public class ProductSearchResult extends Activity {
         });
     }
 
+    /**
+     * Produkt aus der Liste der Suchergebnisse an die Liste der ausgewählten Nahrungsmittel über
+     * Intent an die vorige Activity übergeben.
+     * @param product
+     */
     private void addProductToList(Product product) {
-        //ArrayList<Product> list = new ArrayList<>();
-        //list.add(product);
         Intent intent = new Intent(this, ProductSearch.class);
         intent.putExtra("product", product);
-        //intent.putParcelableArrayListExtra("product", list);
         startActivity(intent);
     }
 
@@ -83,6 +91,13 @@ public class ProductSearchResult extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Suche der Nahrungsmittel per asynchronem Http Get Request an den Server.
+     * Im Response vom Server steht ein array von JSON-Objekten. Diese werden per GSON zu Java-Objekten
+     * geparst und der ArrayList products hinzugefügt, die an den GridAdapter gebindet ist. Per
+     * notifyDataSetChanged wird der adapter über Änderungen informiert und zeigt diese an.
+     * @param search
+     */
     void searchProducts(String search) {
         RestClient.get("carbs?=" + search, null, new JsonHttpResponseHandler() {
             @Override

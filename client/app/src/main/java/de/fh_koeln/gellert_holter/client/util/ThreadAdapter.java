@@ -12,6 +12,10 @@ import java.util.List;
 
 import de.fh_koeln.gellert_holter.client.R;
 
+
+/**
+ * Notwendiger Adapter zum DataBinding vom implementierten Typ "Thread" an ListView
+ */
 public class ThreadAdapter extends ArrayAdapter<Thread> {
 
     int resource;

@@ -6,6 +6,13 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasse zur Implementierung des Typs "Thread". Muss äquivalent zur Datenstruktur der Objekte auf dem
+ * Server sein, um mittels GSON-Library die JSON-Objekte vom Server in Java-Objekte zu parsen.
+ * <p/>
+ * Implementiert das Interface Parcelable, damit diese Objekte via Intent zwischen den Activities
+ * versendet werden können.
+ */
 public class Thread implements Parcelable {
     public String _id;
     public String author;

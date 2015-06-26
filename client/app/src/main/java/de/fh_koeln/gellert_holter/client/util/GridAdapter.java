@@ -11,6 +11,10 @@ import java.util.List;
 
 import de.fh_koeln.gellert_holter.client.R;
 
+
+/**
+ * Notwendiger Adapter zum DataBinding vom implementierten Typ "Product" an GridView
+ */
 public class GridAdapter extends ArrayAdapter<Product> {
     private final List<Product> list;
     private final Activity context;

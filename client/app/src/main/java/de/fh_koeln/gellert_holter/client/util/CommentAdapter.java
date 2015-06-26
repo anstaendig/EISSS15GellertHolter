@@ -12,6 +12,9 @@ import java.util.List;
 
 import de.fh_koeln.gellert_holter.client.R;
 
+/**
+ * Notwendiger Adapter zum DataBinding vom implementierten Typ "Comment" an ListView
+ */
 public class CommentAdapter extends ArrayAdapter<Comment> {
 
     int resource;

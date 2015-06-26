@@ -13,13 +13,13 @@ var threads = [{
   comments: [{
     author: 'author1',
     body: 'body1',
-    date: 'date1' },
-  {
+    date: 'date1'
+  }, {
     author: 'author3',
-   	body: 'body2',
-   	date: 'date3' }]
-},
-{
+    body: 'body2',
+    date: 'date3'
+  }]
+}, {
   '_id': '_id',
   author: 'author',
   date: 'date',
@@ -28,17 +28,13 @@ var threads = [{
   comments: [{
     body: 'body',
     date: 'date',
-    author: 'author' },
-  {
+    author: 'author'
+  }, {
     body: 'body2',
-   	date: 'date2',
-   	author: 'author2' }]
+    date: 'date2',
+    author: 'author2'
+  }]
 }];
-
-
-
-
-
 
 var thread = {
   '_id': '_id',
@@ -46,14 +42,15 @@ var thread = {
   date: 'date',
   body: 'body',
   topics: ['/topic1', '/topic'],
-  comments: [
-    {body: 'body',
-     date: 'date',
-     author: 'author' },
-     {
-   	 body: 'body',
-   	 date: 'date',
-   	 author: 'author' }]
+  comments: [{
+    body: 'body',
+    date: 'date',
+    author: 'author'
+  }, {
+    body: 'body',
+    date: 'date',
+    author: 'author'
+  }]
 };
 
 router.get('/', function(req, res, next) {
@@ -85,7 +82,12 @@ router.post('/', function(req, res, next) {
     newThread.save();
   })
 
-  
+  Parent.findById("556da21a09ed2732f501d55b", function(err, parent) {
+    Child.findById(parent.children[0], function(err, child) {
+
+    })
+  })
+
 });
 
 // TODO Comment on a thread

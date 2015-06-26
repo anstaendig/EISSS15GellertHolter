@@ -10,19 +10,29 @@ import android.view.View;
 import de.fh_koeln.gellert_holter.client.R;
 import de.fh_koeln.gellert_holter.client.activities.children.MainChildren;
 import de.fh_koeln.gellert_holter.client.activities.parents.Forum;
+import de.fh_koeln.gellert_holter.client.activities.parents.MainParents;
 import de.fh_koeln.gellert_holter.client.util.Authentication;
 
+/**
+ * Erste Activity im Client zur Auswahl der Kind- oder Eltern-Applikation
+ */
 public class Main extends Activity {
 
     Boolean login;
     Authentication authentication;
 
+    /**
+     * Überprüfung der Authentifizierung über tokens auskommentiert, da API-Endpoints nicht
+     * Restkonform.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //authentication = new Authentication(this);
-        //login = authentication.isAuthorized();
+        //login = authentication.isAuthorized();r
         //if (!login) authentication.openLogin();
     }
 
@@ -59,14 +69,23 @@ public class Main extends Activity {
         }
     }
 
+    /**
+     * Startet MainActivity der Kinder
+     *
+     * @param view
+     */
     public void startChildren(View view) {
         Intent intent = new Intent(this, MainChildren.class);
         startActivity(intent);
     }
 
+    /**
+     * Startet MainActivity der Eltern
+     *
+     * @param view
+     */
     public void startParents(View view) {
-        // TODO Implement MainParents
-        Intent intent = new Intent(this, Forum.class);
+        Intent intent = new Intent(this, MainParents.class);
         startActivity(intent);
     }
 }

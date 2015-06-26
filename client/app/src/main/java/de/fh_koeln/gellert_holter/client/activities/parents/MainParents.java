@@ -1,12 +1,18 @@
 package de.fh_koeln.gellert_holter.client.activities.parents;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import de.fh_koeln.gellert_holter.client.R;
 
+/**
+ * Erste Activity des Eltern-Clients. Forum kann gestartet werden.
+ * TODO: Logbuch des Kindes!
+ */
 public class MainParents extends Activity {
 
     @Override
@@ -35,5 +41,11 @@ public class MainParents extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void startForum(View view) {
+        Intent intent = new Intent(this, Forum.class);
+        startActivity(intent);
     }
 }

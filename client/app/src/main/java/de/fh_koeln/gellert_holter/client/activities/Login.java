@@ -23,6 +23,11 @@ import de.fh_koeln.gellert_holter.client.activities.parents.MainParents;
 import de.fh_koeln.gellert_holter.client.util.Authentication;
 import de.fh_koeln.gellert_holter.client.util.RestClient;
 
+/**
+ * Activity zum Login.
+ * TODO: Da die Ressourcen /signup und /authenticate nicht restkonform sind, muss eine alternative
+ * modelliert werden. Keine Zeit mehr!
+ */
 public class Login extends Activity {
 
     RequestParams params;
@@ -60,6 +65,16 @@ public class Login extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * e-mail und password werden per asynchronem http post request an den serer übermittelt.
+     * Bei responsecode 200 wird der übermittelte token in der Authentication Klasse gespeichert.
+     * Bei responsecode 401 wird die vom server übermittelte Fehlermeldung per Toast angezeigt.
+     * Bei responsecode 404 wird gefragt, ob ein Account erstellt werden möchte und falls ja,
+     * per asynchronem http post request ein neuer Account auf dem API-Endpoint signup angelegt und
+     * der im response stehende token in der Authentication Klasse gespeichert.
+     *
+     * @param view
+     */
     public void login(View view) {
         params = new RequestParams();
         params.put("email", email.getText().toString());
@@ -120,10 +135,6 @@ public class Login extends Activity {
         });
     }
 
-    public void testLogin(View view) {
-        Authentication auth = new Authentication(context);
-        auth.logout();
-    }
 
     public void switchA() {
         Intent intent = new Intent(this, MainParents.class);

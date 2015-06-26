@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var chalk = require('chalk');
-var jwt    = require('jsonwebtoken');
+var jwt = require('jsonwebtoken');
 var app = require('../app');
 var secret = require('../config/secret').secret;
 var isAuthorized = require('../util/isAuthorized');
 var Parent = require('../models/parent');
 
-// Route to authenticate a parent (POST http://localhost:3000/api/authenticate)
+//TODO: Find another way to initially authorize and/or signup to service without /signup and /authorize because they're not rest
+
 router.post('/authenticate', function(req, res, next) {
   Parent.findOne({
     email: req.body.email
@@ -30,13 +31,14 @@ router.post('/authenticate', function(req, res, next) {
           message: 'Enjoy your token!',
           token: user.token
         });
-      };
-    };
+      }
+    }
   });
 });
 
 router.post('/signup', function(req, res, next) {
-  console.log(chalk.yellow('Trying to register user with email address ') + chalk.blue(req.body.email) + chalk.yellow('...'));
+  console.log(chalk.yellow('Trying to register user with email address ') +
+    chalk.blue(req.body.email) + chalk.yellow('...'));
   Parent.findOne({
     email: req.body.email
   }, function(err, user) {
@@ -53,7 +55,10 @@ router.post('/signup', function(req, res, next) {
             message: 'Signup successfull',
             token: user1.token
           });
-          console.log(chalk.green('User with email address ') + chalk.blue(user1.email) +  chalk.green(' successfully registered with unique token:\n') + chalk.blue(user1.token));
+          console.log(chalk.green('User with email address ') +
+            chalk.blue(user1.email) + chalk.green(
+              ' successfully registered with unique token:\n'
+            ) + chalk.blue(user1.token));
         });
       });
     }

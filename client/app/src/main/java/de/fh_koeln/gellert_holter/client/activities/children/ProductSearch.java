@@ -32,6 +32,11 @@ public class ProductSearch extends Activity {
     Activity context;
     Integer bsValue;
 
+    /**
+     * Über den Intent wird der Blutzucker ausgelesen. Der Adapter pa wird an den ListView lv gebunden
+     * um die Produkte aus der ArrayList im ListView anzuzeigen.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +79,9 @@ public class ProductSearch extends Activity {
         setIntent(intent);
     }
 
+    /**
+     * Bei Rückkehr auf die Activity wird der ArrayList products das Produkt aus dem Intent hinzugefügt
+     */
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -85,6 +93,11 @@ public class ProductSearch extends Activity {
         }
     }
 
+    /**
+     * Die Activity mit dem GridView der Suchresultate wird aufgerufen. Über den Intent
+     * wird der Suchbegriff mitgegeben.
+     * @param view
+     */
     public void searchProduct(View view) {
         String productSearch = search.getText().toString();
         Intent intent = new Intent(this, ProductSearchResult.class);
@@ -93,6 +106,15 @@ public class ProductSearch extends Activity {
     }
 
 
+    /**
+     * Insulineinheiten werden berechnet. Basierend auf der aktuellen Zeit wird der beFactor aus
+     * dem lokalen Kindprofil ausgelesen (morgens, mittags, abends). Es wird über die Liste der
+     * Nahrungsmittel iteriert und die Broteinheiten basierend auf dem Gewicht summiert.
+     * Optional werden basierend auf dem Blutzucker und dem Ziel- und Korrekturwert (im Kindprofil)
+     * Korrektureinheiten addiert. Broteinheiten, Korrektureinheiten und der BE-Faktor werden in
+     * einer ArrayList gespeichert und per Intent an die Activity zur Erstellung des Eintrags gesendet.
+     * @param view
+     */
     public void calculateUnits(View view) {
         Calendar calendar = Calendar.getInstance();
         Integer time = calendar.get(Calendar.HOUR_OF_DAY);
@@ -132,6 +154,13 @@ public class ProductSearch extends Activity {
         startActivity(intent);
     }
 
+    /**
+     * Methode um festzustellen, ob Integer in einem Intervall liegt
+     * @param x Zu überprüfender Integer
+     * @param lower Integer als untere Grenze des Intervalls
+     * @param upper Integer als obere Grenze des Intervalls
+     * @return true, wenn im Intervall. false, wenn nicht.
+     */
     public static boolean isBetween(int x, int lower, int upper) {
         return lower <= x && x <= upper;
     }

@@ -30,6 +30,12 @@ public class Forum extends Activity {
     ThreadAdapter ta;
     ArrayList<Thread> threads = null;
 
+    /**
+     * ThreadAdapter ta wird an den ListView und die ArrayList Threads gebunden.
+     * Bei Click auf ein Item im ListView wird dieser Thread an neue Activity gesendet.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +76,12 @@ public class Forum extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Abruf der Threads vom Server via asynchronem http get request.
+     * Response des Server ist ein JSONArray. Die JSONObjects werden via GSON in Java-Objekte
+     * geparst und dem der ArrayList threads hinzugefügt. Der ThreadAdapter wird auf die Änderungen
+     * per notifyDataSetChanged hingewiesen.
+     */
     private void getThreads() {
         RestClient.get("forum", null, new JsonHttpResponseHandler() {
             @Override
@@ -87,9 +99,25 @@ public class Forum extends Activity {
         });
     }
 
+    /**
+     * Neue Activity wird gestartet und per Intent der anzuzeigende Thread übergeben.
+     *
+     * @param thread
+     */
     private void showThread(Thread thread) {
         Intent intent = new Intent(this, ShowThread.class);
         intent.putExtra("thread", thread);
+        startActivity(intent);
+    }
+
+
+    /**
+     * Activity zum Erstellen eines neuen Threads wird gestartet
+     *
+     * @param view
+     */
+    public void newThread(View view) {
+        Intent intent = new Intent(this, NewThread.class);
         startActivity(intent);
     }
 }

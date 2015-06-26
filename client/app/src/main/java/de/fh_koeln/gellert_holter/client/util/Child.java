@@ -2,7 +2,12 @@ package de.fh_koeln.gellert_holter.client.util;
 
 import java.util.List;
 
+/**
+ * Klasse zur Implementierung des Typs "Child". Muss äquivalent zur Datenstruktur der Objekte auf dem
+ * Server sein, um mittels GSON-Library die JSON-Objekte vom Server in Java-Objekte zu parsen.
+ */
 public class Child {
+    public String _id;
     public String name;
     public Integer age;
     public String gender;

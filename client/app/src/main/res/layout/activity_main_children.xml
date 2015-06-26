@@ -9,21 +9,89 @@
     tools:context="de.fh_koeln.gellert_holter.client.activities.children.MainChildren">
 
     <Button
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Neuer Eintrag"
-        android:id="@+id/button3"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:onClick="startNewEntry"/>
+        android:onClick="startNewEntry"
+        android:text="Neuer Eintrag" />
 
     <Button
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tagebuch"
-        android:id="@+id/button4"
-        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:onClick="startLogBook"/>
+        android:layout_alignParentStart="true"
+        android:onClick="startLogBook"
+        android:text="Tagebuch" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Letzter Logbucheintrag: "
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="125 mg/dl"
+        android:id="@+id/lastEntryBS"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Broteinheiten: "
+        android:id="@+id/textView3"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/lastEntryBS"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6"
+        android:id="@+id/lastEntryIe"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blutzucker"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/lastEntryBS"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vor Drei Stunden"
+        android:id="@+id/lastEntryDate"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12"
+        android:id="@+id/lastEntryBe"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insulineinheiten: "
+        android:id="@+id/textView7"
+        android:layout_alignTop="@+id/lastEntryIe"
+        android:layout_toStartOf="@+id/lastEntryIe" />
+
 
 </RelativeLayout>
