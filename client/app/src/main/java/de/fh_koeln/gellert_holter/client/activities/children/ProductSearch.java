@@ -138,6 +138,7 @@ public class ProductSearch extends Activity {
             Double result = (tmp / 100) * tmp2;
             total += result;
         }
+
         correctionValue = child.therapy.correction;
         targetValue = child.therapy.target;
         Integer correctionUnits = (bsValue - targetValue) / correctionValue;
