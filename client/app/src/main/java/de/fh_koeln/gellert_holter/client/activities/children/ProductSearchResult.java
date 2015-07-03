@@ -99,7 +99,7 @@ public class ProductSearchResult extends Activity {
      * @param search
      */
     void searchProducts(String search) {
-        RestClient.get("carbs?=" + search, null, new JsonHttpResponseHandler() {
+        RestClient.get("carbs?search=" + search, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
