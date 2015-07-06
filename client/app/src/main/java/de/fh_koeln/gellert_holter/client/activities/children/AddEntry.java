@@ -20,6 +20,8 @@ import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -68,7 +70,23 @@ public class AddEntry extends Activity {
         correctionValue.setText(be.get(0));
         beFactorValue.setText(be.get(2));
         Double insulinUnits = (Double.parseDouble(beValue.getText().toString()) + Double.parseDouble(correctionValue.getText().toString())) * Double.parseDouble(beFactorValue.getText().toString());
-        ieValue.setText(insulinUnits.toString());
+        Double iU_rounded = round(insulinUnits, 2);
+        ieValue.setText(iU_rounded.toString());
+    }
+
+    /**
+     * Methoden zum Runden von Doubles
+     *
+     * @param value Double, der gerundet werden soll
+     * @param places Anzahl der Nachkommastellen
+     * @return
+     */
+    public static double round(Double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     @Override
